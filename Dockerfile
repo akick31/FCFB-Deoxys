@@ -10,4 +10,4 @@ COPY ./target/*.jar app.jar
 EXPOSE 1212
 
 # Run Deoxys
-CMD [ "java", "-jar", "app.py" ]
+CMD [ "java", "-jar", "app.jar" ]
