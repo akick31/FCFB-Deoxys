@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.fcfb</groupId>
     <artifactId>FCFB-Deoxys</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>FCFB-Deoxys</name>
     <description>FCFB-Deoxys</description>
     <properties>
@@ -110,6 +110,8 @@
     </dependencies>
 
     <build>
+        <outputDirectory>${project.basedir}/target/classes</outputDirectory>
+        <finalName>${project.artifactId}-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.graalvm.buildtools</groupId>
