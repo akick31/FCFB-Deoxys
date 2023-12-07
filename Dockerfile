@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-hotspot
+FROM adoptopenjdk:8-jdk-hotspot
 
 # Create directories and copy over
 WORKDIR /project
