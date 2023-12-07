@@ -14,6 +14,8 @@
     <name>FCFB-Deoxys</name>
     <description>FCFB-Deoxys</description>
     <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <java.version>1.8</java.version>
         <jasypt.version>3.0.3</jasypt.version>
         <spring-security.version>5.3.4.RELEASE</spring-security.version>
