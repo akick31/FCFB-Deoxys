@@ -209,6 +209,17 @@ public class GamesController {
         }
     }
 
+    @GetMapping("/{game_id}")
+    public ResponseEntity<String> getGameById(@PathVariable("game_id") String gameId) {
+        Optional<GamesEntity> gameData = gamesRepository.findByGameId(gameId);
+
+        if (gameData.isPresent()) {
+            return new ResponseEntity<>(gameData.get().toString(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+    }
+
     @PutMapping("/update")
     public ResponseEntity<String> updateGame(@RequestBody GameRequest gameRequest) {
         Optional<GamesEntity> gameData = gamesRepository.findByGameId(gameRequest.getGameId());
