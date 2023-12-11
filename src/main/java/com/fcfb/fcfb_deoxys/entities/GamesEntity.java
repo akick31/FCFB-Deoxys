@@ -1,10 +1,10 @@
-package com.fcfb.fcfb_deoxys.domain.entities;
+package com.fcfb.fcfb_deoxys.entities;
 
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "games", schema = "deoxys", catalog = "")
+@Table(name = "games", schema = "deoxys")
 public class GamesEntity {
     @Basic
     @Column(name = "game_id")
@@ -140,16 +140,16 @@ public class GamesEntity {
     private String awayTimeOfPossession;
     @Basic
     @Column(name = "home_average_diff_on_offense")
-    private Integer homeAverageDiffOnOffense;
+    private Double homeAverageDiffOnOffense;
     @Basic
     @Column(name = "home_average_diff_on_defense")
-    private Integer homeAverageDiffOnDefense;
+    private Double homeAverageDiffOnDefense;
     @Basic
     @Column(name = "away_average_diff_on_offense")
-    private Integer awayAverageDiffOnOffense;
+    private Double awayAverageDiffOnOffense;
     @Basic
     @Column(name = "away_average_diff_on_defense")
-    private Integer awayAverageDiffOnDefense;
+    private Double awayAverageDiffOnDefense;
     @Basic
     @Column(name = "home_field_goal_attempts")
     private Integer homeFieldGoalAttempts;
@@ -220,8 +220,8 @@ public class GamesEntity {
     @Column(name = "home_third_down_attempts")
     private Integer homeThirdDownAttempts;
     @Basic
-    @Column(name = "home_third_down_success")
-    private Integer homeThirdDownSuccess;
+    @Column(name = "home_third_down_successes")
+    private Integer homeThirdDownSuccesses;
     @Basic
     @Column(name = "home_third_down_percentage")
     private Double homeThirdDownPercentage;
@@ -229,8 +229,8 @@ public class GamesEntity {
     @Column(name = "away_third_down_attempts")
     private Integer awayThirdDownAttempts;
     @Basic
-    @Column(name = "away_third_down_success")
-    private Integer awayThirdDownSuccess;
+    @Column(name = "away_third_down_successes")
+    private Integer awayThirdDownSuccesses;
     @Basic
     @Column(name = "away_third_down_percentage")
     private Double awayThirdDownPercentage;
@@ -238,8 +238,8 @@ public class GamesEntity {
     @Column(name = "home_fourth_down_attempts")
     private Integer homeFourthDownAttempts;
     @Basic
-    @Column(name = "home_fourth_down_success")
-    private Integer homeFourthDownSuccess;
+    @Column(name = "home_fourth_down_successes")
+    private Integer homeFourthDownSuccesses;
     @Basic
     @Column(name = "home_fourth_down_percentage")
     private Double homeFourthDownPercentage;
@@ -247,8 +247,8 @@ public class GamesEntity {
     @Column(name = "away_fourth_down_attempts")
     private Integer awayFourthDownAttempts;
     @Basic
-    @Column(name = "away_fourth_down_success")
-    private Integer awayFourthDownSuccess;
+    @Column(name = "away_fourth_down_successes")
+    private Integer awayFourthDownSuccesses;
     @Basic
     @Column(name = "away_fourth_down_percentage")
     private Double awayFourthDownPercentage;
@@ -256,8 +256,8 @@ public class GamesEntity {
     @Column(name = "home_two_point_attempts")
     private Integer homeTwoPointAttempts;
     @Basic
-    @Column(name = "home_two_point_success")
-    private Integer homeTwoPointSuccess;
+    @Column(name = "home_two_point_successes")
+    private Integer homeTwoPointSuccesses;
     @Basic
     @Column(name = "home_two_point_percentage")
     private Double homeTwoPointPercentage;
@@ -265,8 +265,8 @@ public class GamesEntity {
     @Column(name = "away_two_point_attempts")
     private Integer awayTwoPointAttempts;
     @Basic
-    @Column(name = "away_two_point_success")
-    private Integer awayTwoPointSuccess;
+    @Column(name = "away_two_point_successes")
+    private Integer awayTwoPointSuccesses;
     @Basic
     @Column(name = "away_two_point_percentage")
     private Double awayTwoPointPercentage;
@@ -274,17 +274,17 @@ public class GamesEntity {
     @Column(name = "home_onside_kick_attempts")
     private Integer homeOnsideKickAttempts;
     @Basic
-    @Column(name = "home_onside_kick_success")
-    private Integer homeOnsideKickSuccess;
+    @Column(name = "home_onside_kick_successes")
+    private Integer homeOnsideKickSuccesses;
     @Basic
     @Column(name = "home_onside_kick_percentage")
     private Double homeOnsideKickPercentage;
     @Basic
-    @Column(name = "away_onside_kick_attempt")
-    private Integer awayOnsideKickAttempt;
+    @Column(name = "away_onside_kick_attempts")
+    private Integer awayOnsideKickAttempts;
     @Basic
-    @Column(name = "away_onside_kick_success")
-    private Integer awayOnsideKickSuccess;
+    @Column(name = "away_onside_kick_successes")
+    private Integer awayOnsideKickSuccesses;
     @Basic
     @Column(name = "away_onside_kick_percentage")
     private Double awayOnsideKickPercentage;
@@ -342,6 +342,9 @@ public class GamesEntity {
     @Basic
     @Column(name = "away_kickoff_defensive_touchdowns")
     private Integer awayKickoffDefensiveTouchdowns;
+    @Basic
+    @Column(name = "thread_timestamp")
+    private String threadTimestamp;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
@@ -350,7 +353,7 @@ public class GamesEntity {
     public GamesEntity() {
     }
 
-    public GamesEntity(String gameId, String homeTeam, String awayTeam, String homeCoach, String awayCoach, String homeOffensivePlaybook, String awayOffensivePlaybook, String homeDefensivePlaybook, String awayDefensivePlaybook, Integer homeScore, Integer awayScore, String possession, Integer quarter, String clock, String ballLocation, Integer down, Integer yardsToGo, Integer homeWins, Integer homeLosses, Integer awayWins, Integer awayLosses, String scorebug, String subdivision, String thread, String gistLink, Double winProbability, Byte isFinal, Byte isOt, Integer season, String waitingOn, String winProbabilityPlot, String scorePlot, Integer numPlays, Integer homeTimeouts, Integer awayTimeouts, String gameTimer, Integer homeTotalYards, Integer awayTotalYards, Integer homePassingYards, Integer awayPassingYards, Integer homeRushingYards, Integer awayRushingYards, String homeTimeOfPossession, String awayTimeOfPossession, Integer homeAverageDiffOnOffense, Integer homeAverageDiffOnDefense, Integer awayAverageDiffOnOffense, Integer awayAverageDiffOnDefense, Integer homeFieldGoalAttempts, Integer homeFieldGoalMakes, Double homeFieldGoalPercentage, Integer awayFieldGoalAttempts, Integer awayFieldGoalMakes, Double awayFieldGoalPercentage, Integer homeLongestFieldGoal, Integer awayLongestFieldGoal, Integer homeLongestTouchdown, Integer awayLongestTouchdown, Integer homePassingAttempts, Integer homePassingCompletions, Double homePassingPercentage, Integer awayPassingAttempts, Integer awayPassingCompletions, Double awayPassingPercentage, Integer homeRushingAttempts, Integer homeRushingSuccesses, Double homeRushingPercentage, Integer awayRushingAttempts, Integer awayRushingSuccesses, Double awayRushingPercentage, Integer homeThirdDownAttempts, Integer homeThirdDownSuccess, Double homeThirdDownPercentage, Integer awayThirdDownAttempts, Integer awayThirdDownSuccess, Double awayThirdDownPercentage, Integer homeFourthDownAttempts, Integer homeFourthDownSuccess, Double homeFourthDownPercentage, Integer awayFourthDownAttempts, Integer awayFourthDownSuccess, Double awayFourthDownPercentage, Integer homeTwoPointAttempts, Integer homeTwoPointSuccess, Double homeTwoPointPercentage, Integer awayTwoPointAttempts, Integer awayTwoPointSuccess, Double awayTwoPointPercentage, Integer homeOnsideKickAttempts, Integer homeOnsideKickSuccess, Double homeOnsideKickPercentage, Integer awayOnsideKickAttempt, Integer awayOnsideKickSuccess, Double awayOnsideKickPercentage, Integer homeOffensivePlays, Integer homeDefensivePlays, Integer awayOffensivePlays, Integer awayDefensivePlays, Integer homeTurnovers, Integer homeFumbles, Integer homeInterceptions, Integer awayTurnovers, Integer awayFumbles, Integer awayInterceptions, Integer homeDefensiveTouchdowns, Integer homeScoopAndScores, Integer homePickSixes, Integer homeKickoffDefensiveTouchdowns, Integer awayDefensiveTouchdowns, Integer awayScoopAndScores, Integer awayPickSixes, Integer awayKickoffDefensiveTouchdowns) {
+    public GamesEntity(String gameId, String homeTeam, String awayTeam, String homeCoach, String awayCoach, String homeOffensivePlaybook, String awayOffensivePlaybook, String homeDefensivePlaybook, String awayDefensivePlaybook, Integer homeScore, Integer awayScore, String possession, Integer quarter, String clock, String ballLocation, Integer down, Integer yardsToGo, Integer homeWins, Integer homeLosses, Integer awayWins, Integer awayLosses, String scorebug, String subdivision, String thread, String gistLink, Double winProbability, Byte isFinal, Byte isOt, Integer season, String waitingOn, String winProbabilityPlot, String scorePlot, Integer numPlays, Integer homeTimeouts, Integer awayTimeouts, String gameTimer, Integer homeTotalYards, Integer awayTotalYards, Integer homePassingYards, Integer awayPassingYards, Integer homeRushingYards, Integer awayRushingYards, String homeTimeOfPossession, String awayTimeOfPossession, Double homeAverageDiffOnOffense, Double homeAverageDiffOnDefense, Double awayAverageDiffOnOffense, Double awayAverageDiffOnDefense, Integer homeFieldGoalAttempts, Integer homeFieldGoalMakes, Double homeFieldGoalPercentage, Integer awayFieldGoalAttempts, Integer awayFieldGoalMakes, Double awayFieldGoalPercentage, Integer homeLongestFieldGoal, Integer awayLongestFieldGoal, Integer homeLongestTouchdown, Integer awayLongestTouchdown, Integer homePassingAttempts, Integer homePassingCompletions, Double homePassingPercentage, Integer awayPassingAttempts, Integer awayPassingCompletions, Double awayPassingPercentage, Integer homeRushingAttempts, Integer homeRushingSuccesses, Double homeRushingPercentage, Integer awayRushingAttempts, Integer awayRushingSuccesses, Double awayRushingPercentage, Integer homeThirdDownAttempts, Integer homeThirdDownSuccesses, Double homeThirdDownPercentage, Integer awayThirdDownAttempts, Integer awayThirdDownSuccesses, Double awayThirdDownPercentage, Integer homeFourthDownAttempts, Integer homeFourthDownSuccesses, Double homeFourthDownPercentage, Integer awayFourthDownAttempts, Integer awayFourthDownSuccesses, Double awayFourthDownPercentage, Integer homeTwoPointAttempts, Integer homeTwoPointSuccesses, Double homeTwoPointPercentage, Integer awayTwoPointAttempts, Integer awayTwoPointSuccesses, Double awayTwoPointPercentage, Integer homeOnsideKickAttempts, Integer homeOnsideKickSuccesses, Double homeOnsideKickPercentage, Integer awayOnsideKickAttempts, Integer awayOnsideKickSuccesses, Double awayOnsideKickPercentage, Integer homeOffensivePlays, Integer homeDefensivePlays, Integer awayOffensivePlays, Integer awayDefensivePlays, Integer homeTurnovers, Integer homeFumbles, Integer homeInterceptions, Integer awayTurnovers, Integer awayFumbles, Integer awayInterceptions, Integer homeDefensiveTouchdowns, Integer homeScoopAndScores, Integer homePickSixes, Integer homeKickoffDefensiveTouchdowns, Integer awayDefensiveTouchdowns, Integer awayScoopAndScores, Integer awayPickSixes, Integer awayKickoffDefensiveTouchdowns, String threadTimestamp) {
         this.gameId = gameId;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
@@ -422,28 +425,28 @@ public class GamesEntity {
         this.awayRushingSuccesses = awayRushingSuccesses;
         this.awayRushingPercentage = awayRushingPercentage;
         this.homeThirdDownAttempts = homeThirdDownAttempts;
-        this.homeThirdDownSuccess = homeThirdDownSuccess;
+        this.homeThirdDownSuccesses = homeThirdDownSuccesses;
         this.homeThirdDownPercentage = homeThirdDownPercentage;
         this.awayThirdDownAttempts = awayThirdDownAttempts;
-        this.awayThirdDownSuccess = awayThirdDownSuccess;
+        this.awayThirdDownSuccesses = awayThirdDownSuccesses;
         this.awayThirdDownPercentage = awayThirdDownPercentage;
         this.homeFourthDownAttempts = homeFourthDownAttempts;
-        this.homeFourthDownSuccess = homeFourthDownSuccess;
+        this.homeFourthDownSuccesses = homeFourthDownSuccesses;
         this.homeFourthDownPercentage = homeFourthDownPercentage;
         this.awayFourthDownAttempts = awayFourthDownAttempts;
-        this.awayFourthDownSuccess = awayFourthDownSuccess;
+        this.awayFourthDownSuccesses = awayFourthDownSuccesses;
         this.awayFourthDownPercentage = awayFourthDownPercentage;
         this.homeTwoPointAttempts = homeTwoPointAttempts;
-        this.homeTwoPointSuccess = homeTwoPointSuccess;
+        this.homeTwoPointSuccesses = homeTwoPointSuccesses;
         this.homeTwoPointPercentage = homeTwoPointPercentage;
         this.awayTwoPointAttempts = awayTwoPointAttempts;
-        this.awayTwoPointSuccess = awayTwoPointSuccess;
+        this.awayTwoPointSuccesses = awayTwoPointSuccesses;
         this.awayTwoPointPercentage = awayTwoPointPercentage;
         this.homeOnsideKickAttempts = homeOnsideKickAttempts;
-        this.homeOnsideKickSuccess = homeOnsideKickSuccess;
+        this.homeOnsideKickSuccesses = homeOnsideKickSuccesses;
         this.homeOnsideKickPercentage = homeOnsideKickPercentage;
-        this.awayOnsideKickAttempt = awayOnsideKickAttempt;
-        this.awayOnsideKickSuccess = awayOnsideKickSuccess;
+        this.awayOnsideKickAttempts = awayOnsideKickAttempts;
+        this.awayOnsideKickSuccesses = awayOnsideKickSuccesses;
         this.awayOnsideKickPercentage = awayOnsideKickPercentage;
         this.homeOffensivePlays = homeOffensivePlays;
         this.homeDefensivePlays = homeDefensivePlays;
@@ -463,6 +466,7 @@ public class GamesEntity {
         this.awayScoopAndScores = awayScoopAndScores;
         this.awayPickSixes = awayPickSixes;
         this.awayKickoffDefensiveTouchdowns = awayKickoffDefensiveTouchdowns;
+        this.threadTimestamp = threadTimestamp;
     }
 
     public String getGameId() {
@@ -817,35 +821,35 @@ public class GamesEntity {
         this.awayTimeOfPossession = awayTimeOfPossession;
     }
 
-    public Integer getHomeAverageDiffOnOffense() {
+    public Double getHomeAverageDiffOnOffense() {
         return homeAverageDiffOnOffense;
     }
 
-    public void setHomeAverageDiffOnOffense(Integer homeAverageDiffOnOffense) {
+    public void setHomeAverageDiffOnOffense(Double homeAverageDiffOnOffense) {
         this.homeAverageDiffOnOffense = homeAverageDiffOnOffense;
     }
 
-    public Integer getHomeAverageDiffOnDefense() {
+    public Double getHomeAverageDiffOnDefense() {
         return homeAverageDiffOnDefense;
     }
 
-    public void setHomeAverageDiffOnDefense(Integer homeAverageDiffOnDefense) {
+    public void setHomeAverageDiffOnDefense(Double homeAverageDiffOnDefense) {
         this.homeAverageDiffOnDefense = homeAverageDiffOnDefense;
     }
 
-    public Integer getAwayAverageDiffOnOffense() {
+    public Double getAwayAverageDiffOnOffense() {
         return awayAverageDiffOnOffense;
     }
 
-    public void setAwayAverageDiffOnOffense(Integer awayAverageDiffOnOffense) {
+    public void setAwayAverageDiffOnOffense(Double awayAverageDiffOnOffense) {
         this.awayAverageDiffOnOffense = awayAverageDiffOnOffense;
     }
 
-    public Integer getAwayAverageDiffOnDefense() {
+    public Double getAwayAverageDiffOnDefense() {
         return awayAverageDiffOnDefense;
     }
 
-    public void setAwayAverageDiffOnDefense(Integer awayAverageDiffOnDefense) {
+    public void setAwayAverageDiffOnDefense(Double awayAverageDiffOnDefense) {
         this.awayAverageDiffOnDefense = awayAverageDiffOnDefense;
     }
 
@@ -1033,12 +1037,12 @@ public class GamesEntity {
         this.homeThirdDownAttempts = homeThirdDownAttempts;
     }
 
-    public Integer getHomeThirdDownSuccess() {
-        return homeThirdDownSuccess;
+    public Integer getHomeThirdDownSuccesses() {
+        return homeThirdDownSuccesses;
     }
 
-    public void setHomeThirdDownSuccess(Integer homeThirdDownSuccess) {
-        this.homeThirdDownSuccess = homeThirdDownSuccess;
+    public void setHomeThirdDownSuccesses(Integer homeThirdDownSuccesses) {
+        this.homeThirdDownSuccesses = homeThirdDownSuccesses;
     }
 
     public Double getHomeThirdDownPercentage() {
@@ -1057,12 +1061,12 @@ public class GamesEntity {
         this.awayThirdDownAttempts = awayThirdDownAttempts;
     }
 
-    public Integer getAwayThirdDownSuccess() {
-        return awayThirdDownSuccess;
+    public Integer getAwayThirdDownSuccesses() {
+        return awayThirdDownSuccesses;
     }
 
-    public void setAwayThirdDownSuccess(Integer awayThirdDownSuccess) {
-        this.awayThirdDownSuccess = awayThirdDownSuccess;
+    public void setAwayThirdDownSuccesses(Integer awayThirdDownSuccesses) {
+        this.awayThirdDownSuccesses = awayThirdDownSuccesses;
     }
 
     public Double getAwayThirdDownPercentage() {
@@ -1081,12 +1085,12 @@ public class GamesEntity {
         this.homeFourthDownAttempts = homeFourthDownAttempts;
     }
 
-    public Integer getHomeFourthDownSuccess() {
-        return homeFourthDownSuccess;
+    public Integer getHomeFourthDownSuccesses() {
+        return homeFourthDownSuccesses;
     }
 
-    public void setHomeFourthDownSuccess(Integer homeFourthDownSuccess) {
-        this.homeFourthDownSuccess = homeFourthDownSuccess;
+    public void setHomeFourthDownSuccesses(Integer homeFourthDownSuccesses) {
+        this.homeFourthDownSuccesses = homeFourthDownSuccesses;
     }
 
     public Double getHomeFourthDownPercentage() {
@@ -1105,12 +1109,12 @@ public class GamesEntity {
         this.awayFourthDownAttempts = awayFourthDownAttempts;
     }
 
-    public Integer getAwayFourthDownSuccess() {
-        return awayFourthDownSuccess;
+    public Integer getAwayFourthDownSuccesses() {
+        return awayFourthDownSuccesses;
     }
 
-    public void setAwayFourthDownSuccess(Integer awayFourthDownSuccess) {
-        this.awayFourthDownSuccess = awayFourthDownSuccess;
+    public void setAwayFourthDownSuccesses(Integer awayFourthDownSuccesses) {
+        this.awayFourthDownSuccesses = awayFourthDownSuccesses;
     }
 
     public Double getAwayFourthDownPercentage() {
@@ -1129,12 +1133,12 @@ public class GamesEntity {
         this.homeTwoPointAttempts = homeTwoPointAttempts;
     }
 
-    public Integer getHomeTwoPointSuccess() {
-        return homeTwoPointSuccess;
+    public Integer getHomeTwoPointSuccesses() {
+        return homeTwoPointSuccesses;
     }
 
-    public void setHomeTwoPointSuccess(Integer homeTwoPointSuccess) {
-        this.homeTwoPointSuccess = homeTwoPointSuccess;
+    public void setHomeTwoPointSuccesses(Integer homeTwoPointSuccesses) {
+        this.homeTwoPointSuccesses = homeTwoPointSuccesses;
     }
 
     public Double getHomeTwoPointPercentage() {
@@ -1153,12 +1157,12 @@ public class GamesEntity {
         this.awayTwoPointAttempts = awayTwoPointAttempts;
     }
 
-    public Integer getAwayTwoPointSuccess() {
-        return awayTwoPointSuccess;
+    public Integer getAwayTwoPointSuccesses() {
+        return awayTwoPointSuccesses;
     }
 
-    public void setAwayTwoPointSuccess(Integer awayTwoPointSuccess) {
-        this.awayTwoPointSuccess = awayTwoPointSuccess;
+    public void setAwayTwoPointSuccesses(Integer awayTwoPointSuccesses) {
+        this.awayTwoPointSuccesses = awayTwoPointSuccesses;
     }
 
     public Double getAwayTwoPointPercentage() {
@@ -1177,12 +1181,12 @@ public class GamesEntity {
         this.homeOnsideKickAttempts = homeOnsideKickAttempts;
     }
 
-    public Integer getHomeOnsideKickSuccess() {
-        return homeOnsideKickSuccess;
+    public Integer getHomeOnsideKickSuccesses() {
+        return homeOnsideKickSuccesses;
     }
 
-    public void setHomeOnsideKickSuccess(Integer homeOnsideKickSuccess) {
-        this.homeOnsideKickSuccess = homeOnsideKickSuccess;
+    public void setHomeOnsideKickSuccesses(Integer homeOnsideKickSuccesses) {
+        this.homeOnsideKickSuccesses = homeOnsideKickSuccesses;
     }
 
     public Double getHomeOnsideKickPercentage() {
@@ -1193,20 +1197,20 @@ public class GamesEntity {
         this.homeOnsideKickPercentage = homeOnsideKickPercentage;
     }
 
-    public Integer getAwayOnsideKickAttempt() {
-        return awayOnsideKickAttempt;
+    public Integer getAwayOnsideKickAttempts() {
+        return awayOnsideKickAttempts;
     }
 
-    public void setAwayOnsideKickAttempt(Integer awayOnsideKickAttempt) {
-        this.awayOnsideKickAttempt = awayOnsideKickAttempt;
+    public void setAwayOnsideKickAttempts(Integer awayOnsideKickAttempts) {
+        this.awayOnsideKickAttempts = awayOnsideKickAttempts;
     }
 
-    public Integer getAwayOnsideKickSuccess() {
-        return awayOnsideKickSuccess;
+    public Integer getAwayOnsideKickSuccesses() {
+        return awayOnsideKickSuccesses;
     }
 
-    public void setAwayOnsideKickSuccess(Integer awayOnsideKickSuccess) {
-        this.awayOnsideKickSuccess = awayOnsideKickSuccess;
+    public void setAwayOnsideKickSuccesses(Integer awayOnsideKickSuccesses) {
+        this.awayOnsideKickSuccesses = awayOnsideKickSuccesses;
     }
 
     public Double getAwayOnsideKickPercentage() {
@@ -1369,16 +1373,24 @@ public class GamesEntity {
         this.id = id;
     }
 
+    public String getThreadTimestamp() {
+        return threadTimestamp;
+    }
+
+    public void setThreadTimestamp(String threadTimestamp) {
+        this.threadTimestamp = threadTimestamp;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GamesEntity that = (GamesEntity) o;
-        return id == that.id && Objects.equals(gameId, that.gameId) && Objects.equals(homeTeam, that.homeTeam) && Objects.equals(awayTeam, that.awayTeam) && Objects.equals(homeCoach, that.homeCoach) && Objects.equals(awayCoach, that.awayCoach) && Objects.equals(homeOffensivePlaybook, that.homeOffensivePlaybook) && Objects.equals(awayOffensivePlaybook, that.awayOffensivePlaybook) && Objects.equals(homeDefensivePlaybook, that.homeDefensivePlaybook) && Objects.equals(awayDefensivePlaybook, that.awayDefensivePlaybook) && Objects.equals(homeScore, that.homeScore) && Objects.equals(awayScore, that.awayScore) && Objects.equals(possession, that.possession) && Objects.equals(quarter, that.quarter) && Objects.equals(clock, that.clock) && Objects.equals(ballLocation, that.ballLocation) && Objects.equals(down, that.down) && Objects.equals(yardsToGo, that.yardsToGo) && Objects.equals(homeWins, that.homeWins) && Objects.equals(homeLosses, that.homeLosses) && Objects.equals(awayWins, that.awayWins) && Objects.equals(awayLosses, that.awayLosses) && Objects.equals(scorebug, that.scorebug) && Objects.equals(subdivision, that.subdivision) && Objects.equals(thread, that.thread) && Objects.equals(gistLink, that.gistLink) && Objects.equals(winProbability, that.winProbability) && Objects.equals(isFinal, that.isFinal) && Objects.equals(isOt, that.isOt) && Objects.equals(season, that.season) && Objects.equals(waitingOn, that.waitingOn) && Objects.equals(winProbabilityPlot, that.winProbabilityPlot) && Objects.equals(scorePlot, that.scorePlot) && Objects.equals(numPlays, that.numPlays) && Objects.equals(homeTimeouts, that.homeTimeouts) && Objects.equals(awayTimeouts, that.awayTimeouts) && Objects.equals(gameTimer, that.gameTimer) && Objects.equals(homeTotalYards, that.homeTotalYards) && Objects.equals(awayTotalYards, that.awayTotalYards) && Objects.equals(homePassingYards, that.homePassingYards) && Objects.equals(awayPassingYards, that.awayPassingYards) && Objects.equals(homeRushingYards, that.homeRushingYards) && Objects.equals(awayRushingYards, that.awayRushingYards) && Objects.equals(homeTimeOfPossession, that.homeTimeOfPossession) && Objects.equals(awayTimeOfPossession, that.awayTimeOfPossession) && Objects.equals(homeAverageDiffOnOffense, that.homeAverageDiffOnOffense) && Objects.equals(homeAverageDiffOnDefense, that.homeAverageDiffOnDefense) && Objects.equals(awayAverageDiffOnOffense, that.awayAverageDiffOnOffense) && Objects.equals(awayAverageDiffOnDefense, that.awayAverageDiffOnDefense) && Objects.equals(homeFieldGoalAttempts, that.homeFieldGoalAttempts) && Objects.equals(homeFieldGoalMakes, that.homeFieldGoalMakes) && Objects.equals(homeFieldGoalPercentage, that.homeFieldGoalPercentage) && Objects.equals(awayFieldGoalAttempts, that.awayFieldGoalAttempts) && Objects.equals(awayFieldGoalMakes, that.awayFieldGoalMakes) && Objects.equals(awayFieldGoalPercentage, that.awayFieldGoalPercentage) && Objects.equals(homeLongestFieldGoal, that.homeLongestFieldGoal) && Objects.equals(awayLongestFieldGoal, that.awayLongestFieldGoal) && Objects.equals(homeLongestTouchdown, that.homeLongestTouchdown) && Objects.equals(awayLongestTouchdown, that.awayLongestTouchdown) && Objects.equals(homePassingAttempts, that.homePassingAttempts) && Objects.equals(homePassingCompletions, that.homePassingCompletions) && Objects.equals(homePassingPercentage, that.homePassingPercentage) && Objects.equals(awayPassingAttempts, that.awayPassingAttempts) && Objects.equals(awayPassingCompletions, that.awayPassingCompletions) && Objects.equals(awayPassingPercentage, that.awayPassingPercentage) && Objects.equals(homeRushingAttempts, that.homeRushingAttempts) && Objects.equals(homeRushingSuccesses, that.homeRushingSuccesses) && Objects.equals(homeRushingPercentage, that.homeRushingPercentage) && Objects.equals(awayRushingAttempts, that.awayRushingAttempts) && Objects.equals(awayRushingSuccesses, that.awayRushingSuccesses) && Objects.equals(awayRushingPercentage, that.awayRushingPercentage) && Objects.equals(homeThirdDownAttempts, that.homeThirdDownAttempts) && Objects.equals(homeThirdDownSuccess, that.homeThirdDownSuccess) && Objects.equals(homeThirdDownPercentage, that.homeThirdDownPercentage) && Objects.equals(awayThirdDownAttempts, that.awayThirdDownAttempts) && Objects.equals(awayThirdDownSuccess, that.awayThirdDownSuccess) && Objects.equals(awayThirdDownPercentage, that.awayThirdDownPercentage) && Objects.equals(homeFourthDownAttempts, that.homeFourthDownAttempts) && Objects.equals(homeFourthDownSuccess, that.homeFourthDownSuccess) && Objects.equals(homeFourthDownPercentage, that.homeFourthDownPercentage) && Objects.equals(awayFourthDownAttempts, that.awayFourthDownAttempts) && Objects.equals(awayFourthDownSuccess, that.awayFourthDownSuccess) && Objects.equals(awayFourthDownPercentage, that.awayFourthDownPercentage) && Objects.equals(homeTwoPointAttempts, that.homeTwoPointAttempts) && Objects.equals(homeTwoPointSuccess, that.homeTwoPointSuccess) && Objects.equals(homeTwoPointPercentage, that.homeTwoPointPercentage) && Objects.equals(awayTwoPointAttempts, that.awayTwoPointAttempts) && Objects.equals(awayTwoPointSuccess, that.awayTwoPointSuccess) && Objects.equals(awayTwoPointPercentage, that.awayTwoPointPercentage) && Objects.equals(homeOnsideKickAttempts, that.homeOnsideKickAttempts) && Objects.equals(homeOnsideKickSuccess, that.homeOnsideKickSuccess) && Objects.equals(homeOnsideKickPercentage, that.homeOnsideKickPercentage) && Objects.equals(awayOnsideKickAttempt, that.awayOnsideKickAttempt) && Objects.equals(awayOnsideKickSuccess, that.awayOnsideKickSuccess) && Objects.equals(awayOnsideKickPercentage, that.awayOnsideKickPercentage) && Objects.equals(homeOffensivePlays, that.homeOffensivePlays) && Objects.equals(homeDefensivePlays, that.homeDefensivePlays) && Objects.equals(awayOffensivePlays, that.awayOffensivePlays) && Objects.equals(awayDefensivePlays, that.awayDefensivePlays) && Objects.equals(homeTurnovers, that.homeTurnovers) && Objects.equals(homeFumbles, that.homeFumbles) && Objects.equals(homeInterceptions, that.homeInterceptions) && Objects.equals(awayTurnovers, that.awayTurnovers) && Objects.equals(awayFumbles, that.awayFumbles) && Objects.equals(awayInterceptions, that.awayInterceptions) && Objects.equals(homeDefensiveTouchdowns, that.homeDefensiveTouchdowns) && Objects.equals(homeScoopAndScores, that.homeScoopAndScores) && Objects.equals(homePickSixes, that.homePickSixes) && Objects.equals(homeKickoffDefensiveTouchdowns, that.homeKickoffDefensiveTouchdowns) && Objects.equals(awayDefensiveTouchdowns, that.awayDefensiveTouchdowns) && Objects.equals(awayScoopAndScores, that.awayScoopAndScores) && Objects.equals(awayPickSixes, that.awayPickSixes) && Objects.equals(awayKickoffDefensiveTouchdowns, that.awayKickoffDefensiveTouchdowns);
+        return id == that.id && Objects.equals(gameId, that.gameId) && Objects.equals(homeTeam, that.homeTeam) && Objects.equals(awayTeam, that.awayTeam) && Objects.equals(homeCoach, that.homeCoach) && Objects.equals(awayCoach, that.awayCoach) && Objects.equals(homeOffensivePlaybook, that.homeOffensivePlaybook) && Objects.equals(awayOffensivePlaybook, that.awayOffensivePlaybook) && Objects.equals(homeDefensivePlaybook, that.homeDefensivePlaybook) && Objects.equals(awayDefensivePlaybook, that.awayDefensivePlaybook) && Objects.equals(homeScore, that.homeScore) && Objects.equals(awayScore, that.awayScore) && Objects.equals(possession, that.possession) && Objects.equals(quarter, that.quarter) && Objects.equals(clock, that.clock) && Objects.equals(ballLocation, that.ballLocation) && Objects.equals(down, that.down) && Objects.equals(yardsToGo, that.yardsToGo) && Objects.equals(homeWins, that.homeWins) && Objects.equals(homeLosses, that.homeLosses) && Objects.equals(awayWins, that.awayWins) && Objects.equals(awayLosses, that.awayLosses) && Objects.equals(scorebug, that.scorebug) && Objects.equals(subdivision, that.subdivision) && Objects.equals(thread, that.thread) && Objects.equals(gistLink, that.gistLink) && Objects.equals(winProbability, that.winProbability) && Objects.equals(isFinal, that.isFinal) && Objects.equals(isOt, that.isOt) && Objects.equals(season, that.season) && Objects.equals(waitingOn, that.waitingOn) && Objects.equals(winProbabilityPlot, that.winProbabilityPlot) && Objects.equals(scorePlot, that.scorePlot) && Objects.equals(numPlays, that.numPlays) && Objects.equals(homeTimeouts, that.homeTimeouts) && Objects.equals(awayTimeouts, that.awayTimeouts) && Objects.equals(gameTimer, that.gameTimer) && Objects.equals(homeTotalYards, that.homeTotalYards) && Objects.equals(awayTotalYards, that.awayTotalYards) && Objects.equals(homePassingYards, that.homePassingYards) && Objects.equals(awayPassingYards, that.awayPassingYards) && Objects.equals(homeRushingYards, that.homeRushingYards) && Objects.equals(awayRushingYards, that.awayRushingYards) && Objects.equals(homeTimeOfPossession, that.homeTimeOfPossession) && Objects.equals(awayTimeOfPossession, that.awayTimeOfPossession) && Objects.equals(homeAverageDiffOnOffense, that.homeAverageDiffOnOffense) && Objects.equals(homeAverageDiffOnDefense, that.homeAverageDiffOnDefense) && Objects.equals(awayAverageDiffOnOffense, that.awayAverageDiffOnOffense) && Objects.equals(awayAverageDiffOnDefense, that.awayAverageDiffOnDefense) && Objects.equals(homeFieldGoalAttempts, that.homeFieldGoalAttempts) && Objects.equals(homeFieldGoalMakes, that.homeFieldGoalMakes) && Objects.equals(homeFieldGoalPercentage, that.homeFieldGoalPercentage) && Objects.equals(awayFieldGoalAttempts, that.awayFieldGoalAttempts) && Objects.equals(awayFieldGoalMakes, that.awayFieldGoalMakes) && Objects.equals(awayFieldGoalPercentage, that.awayFieldGoalPercentage) && Objects.equals(homeLongestFieldGoal, that.homeLongestFieldGoal) && Objects.equals(awayLongestFieldGoal, that.awayLongestFieldGoal) && Objects.equals(homeLongestTouchdown, that.homeLongestTouchdown) && Objects.equals(awayLongestTouchdown, that.awayLongestTouchdown) && Objects.equals(homePassingAttempts, that.homePassingAttempts) && Objects.equals(homePassingCompletions, that.homePassingCompletions) && Objects.equals(homePassingPercentage, that.homePassingPercentage) && Objects.equals(awayPassingAttempts, that.awayPassingAttempts) && Objects.equals(awayPassingCompletions, that.awayPassingCompletions) && Objects.equals(awayPassingPercentage, that.awayPassingPercentage) && Objects.equals(homeRushingAttempts, that.homeRushingAttempts) && Objects.equals(homeRushingSuccesses, that.homeRushingSuccesses) && Objects.equals(homeRushingPercentage, that.homeRushingPercentage) && Objects.equals(awayRushingAttempts, that.awayRushingAttempts) && Objects.equals(awayRushingSuccesses, that.awayRushingSuccesses) && Objects.equals(awayRushingPercentage, that.awayRushingPercentage) && Objects.equals(homeThirdDownAttempts, that.homeThirdDownAttempts) && Objects.equals(homeThirdDownSuccesses, that.homeThirdDownSuccesses) && Objects.equals(homeThirdDownPercentage, that.homeThirdDownPercentage) && Objects.equals(awayThirdDownAttempts, that.awayThirdDownAttempts) && Objects.equals(awayThirdDownSuccesses, that.awayThirdDownSuccesses) && Objects.equals(awayThirdDownPercentage, that.awayThirdDownPercentage) && Objects.equals(homeFourthDownAttempts, that.homeFourthDownAttempts) && Objects.equals(homeFourthDownSuccesses, that.homeFourthDownSuccesses) && Objects.equals(homeFourthDownPercentage, that.homeFourthDownPercentage) && Objects.equals(awayFourthDownAttempts, that.awayFourthDownAttempts) && Objects.equals(awayFourthDownSuccesses, that.awayFourthDownSuccesses) && Objects.equals(awayFourthDownPercentage, that.awayFourthDownPercentage) && Objects.equals(homeTwoPointAttempts, that.homeTwoPointAttempts) && Objects.equals(homeTwoPointSuccesses, that.homeTwoPointSuccesses) && Objects.equals(homeTwoPointPercentage, that.homeTwoPointPercentage) && Objects.equals(awayTwoPointAttempts, that.awayTwoPointAttempts) && Objects.equals(awayTwoPointSuccesses, that.awayTwoPointSuccesses) && Objects.equals(awayTwoPointPercentage, that.awayTwoPointPercentage) && Objects.equals(homeOnsideKickAttempts, that.homeOnsideKickAttempts) && Objects.equals(homeOnsideKickSuccesses, that.homeOnsideKickSuccesses) && Objects.equals(homeOnsideKickPercentage, that.homeOnsideKickPercentage) && Objects.equals(awayOnsideKickAttempts, that.awayOnsideKickAttempts) && Objects.equals(awayOnsideKickSuccesses, that.awayOnsideKickSuccesses) && Objects.equals(awayOnsideKickPercentage, that.awayOnsideKickPercentage) && Objects.equals(homeOffensivePlays, that.homeOffensivePlays) && Objects.equals(homeDefensivePlays, that.homeDefensivePlays) && Objects.equals(awayOffensivePlays, that.awayOffensivePlays) && Objects.equals(awayDefensivePlays, that.awayDefensivePlays) && Objects.equals(homeTurnovers, that.homeTurnovers) && Objects.equals(homeFumbles, that.homeFumbles) && Objects.equals(homeInterceptions, that.homeInterceptions) && Objects.equals(awayTurnovers, that.awayTurnovers) && Objects.equals(awayFumbles, that.awayFumbles) && Objects.equals(awayInterceptions, that.awayInterceptions) && Objects.equals(homeDefensiveTouchdowns, that.homeDefensiveTouchdowns) && Objects.equals(homeScoopAndScores, that.homeScoopAndScores) && Objects.equals(homePickSixes, that.homePickSixes) && Objects.equals(homeKickoffDefensiveTouchdowns, that.homeKickoffDefensiveTouchdowns) && Objects.equals(awayDefensiveTouchdowns, that.awayDefensiveTouchdowns) && Objects.equals(awayScoopAndScores, that.awayScoopAndScores) && Objects.equals(awayPickSixes, that.awayPickSixes) && Objects.equals(awayKickoffDefensiveTouchdowns, that.awayKickoffDefensiveTouchdowns) && Objects.equals(threadTimestamp, that.threadTimestamp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(gameId, homeTeam, awayTeam, homeCoach, awayCoach, homeOffensivePlaybook, awayOffensivePlaybook, homeDefensivePlaybook, awayDefensivePlaybook, homeScore, awayScore, possession, quarter, clock, ballLocation, down, yardsToGo, homeWins, homeLosses, awayWins, awayLosses, scorebug, subdivision, thread, gistLink, winProbability, isFinal, isOt, season, waitingOn, winProbabilityPlot, scorePlot, numPlays, homeTimeouts, awayTimeouts, gameTimer, homeTotalYards, awayTotalYards, homePassingYards, awayPassingYards, homeRushingYards, awayRushingYards, homeTimeOfPossession, awayTimeOfPossession, homeAverageDiffOnOffense, homeAverageDiffOnDefense, awayAverageDiffOnOffense, awayAverageDiffOnDefense, homeFieldGoalAttempts, homeFieldGoalMakes, homeFieldGoalPercentage, awayFieldGoalAttempts, awayFieldGoalMakes, awayFieldGoalPercentage, homeLongestFieldGoal, awayLongestFieldGoal, homeLongestTouchdown, awayLongestTouchdown, homePassingAttempts, homePassingCompletions, homePassingPercentage, awayPassingAttempts, awayPassingCompletions, awayPassingPercentage, homeRushingAttempts, homeRushingSuccesses, homeRushingPercentage, awayRushingAttempts, awayRushingSuccesses, awayRushingPercentage, homeThirdDownAttempts, homeThirdDownSuccess, homeThirdDownPercentage, awayThirdDownAttempts, awayThirdDownSuccess, awayThirdDownPercentage, homeFourthDownAttempts, homeFourthDownSuccess, homeFourthDownPercentage, awayFourthDownAttempts, awayFourthDownSuccess, awayFourthDownPercentage, homeTwoPointAttempts, homeTwoPointSuccess, homeTwoPointPercentage, awayTwoPointAttempts, awayTwoPointSuccess, awayTwoPointPercentage, homeOnsideKickAttempts, homeOnsideKickSuccess, homeOnsideKickPercentage, awayOnsideKickAttempt, awayOnsideKickSuccess, awayOnsideKickPercentage, homeOffensivePlays, homeDefensivePlays, awayOffensivePlays, awayDefensivePlays, homeTurnovers, homeFumbles, homeInterceptions, awayTurnovers, awayFumbles, awayInterceptions, homeDefensiveTouchdowns, homeScoopAndScores, homePickSixes, homeKickoffDefensiveTouchdowns, awayDefensiveTouchdowns, awayScoopAndScores, awayPickSixes, awayKickoffDefensiveTouchdowns, id);
+        return Objects.hash(gameId, homeTeam, awayTeam, homeCoach, awayCoach, homeOffensivePlaybook, awayOffensivePlaybook, homeDefensivePlaybook, awayDefensivePlaybook, homeScore, awayScore, possession, quarter, clock, ballLocation, down, yardsToGo, homeWins, homeLosses, awayWins, awayLosses, scorebug, subdivision, thread, gistLink, winProbability, isFinal, isOt, season, waitingOn, winProbabilityPlot, scorePlot, numPlays, homeTimeouts, awayTimeouts, gameTimer, homeTotalYards, awayTotalYards, homePassingYards, awayPassingYards, homeRushingYards, awayRushingYards, homeTimeOfPossession, awayTimeOfPossession, homeAverageDiffOnOffense, homeAverageDiffOnDefense, awayAverageDiffOnOffense, awayAverageDiffOnDefense, homeFieldGoalAttempts, homeFieldGoalMakes, homeFieldGoalPercentage, awayFieldGoalAttempts, awayFieldGoalMakes, awayFieldGoalPercentage, homeLongestFieldGoal, awayLongestFieldGoal, homeLongestTouchdown, awayLongestTouchdown, homePassingAttempts, homePassingCompletions, homePassingPercentage, awayPassingAttempts, awayPassingCompletions, awayPassingPercentage, homeRushingAttempts, homeRushingSuccesses, homeRushingPercentage, awayRushingAttempts, awayRushingSuccesses, awayRushingPercentage, homeThirdDownAttempts, homeThirdDownSuccesses, homeThirdDownPercentage, awayThirdDownAttempts, awayThirdDownSuccesses, awayThirdDownPercentage, homeFourthDownAttempts, homeFourthDownSuccesses, homeFourthDownPercentage, awayFourthDownAttempts, awayFourthDownSuccesses, awayFourthDownPercentage, homeTwoPointAttempts, homeTwoPointSuccesses, homeTwoPointPercentage, awayTwoPointAttempts, awayTwoPointSuccesses, awayTwoPointPercentage, homeOnsideKickAttempts, homeOnsideKickSuccesses, homeOnsideKickPercentage, awayOnsideKickAttempts, awayOnsideKickSuccesses, awayOnsideKickPercentage, homeOffensivePlays, homeDefensivePlays, awayOffensivePlays, awayDefensivePlays, homeTurnovers, homeFumbles, homeInterceptions, awayTurnovers, awayFumbles, awayInterceptions, homeDefensiveTouchdowns, homeScoopAndScores, homePickSixes, homeKickoffDefensiveTouchdowns, awayDefensiveTouchdowns, awayScoopAndScores, awayPickSixes, awayKickoffDefensiveTouchdowns, id, threadTimestamp);
     }
 }

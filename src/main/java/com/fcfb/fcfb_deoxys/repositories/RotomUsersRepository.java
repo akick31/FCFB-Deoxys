@@ -1,9 +1,9 @@
-package com.fcfb.fcfb_deoxys.domain.repositories;
+package com.fcfb.fcfb_deoxys.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
-import com.fcfb.fcfb_deoxys.domain.entities.RotomUsersEntity;
+import com.fcfb.fcfb_deoxys.entities.RotomUsersEntity;
 
 @Repository
 public interface RotomUsersRepository extends CrudRepository<RotomUsersEntity, String> {

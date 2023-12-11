@@ -1,6 +1,6 @@
-package com.fcfb.fcfb_deoxys.domain.repositories;
+package com.fcfb.fcfb_deoxys.repositories;
 
-import com.fcfb.fcfb_deoxys.domain.entities.GamesEntity;
+import com.fcfb.fcfb_deoxys.entities.GamesEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
