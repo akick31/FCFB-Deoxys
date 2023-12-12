@@ -2,10 +2,10 @@ package com.fcfb.fcfb_deoxys.controllers;
 
 import com.fcfb.fcfb_deoxys.domain.GameRequest;
 import com.fcfb.fcfb_deoxys.entities.GamesEntity;
-import com.fcfb.fcfb_deoxys.entities.SeasonsEntity;
+import com.fcfb.fcfb_deoxys.entities.GameDatesEntity;
 import com.fcfb.fcfb_deoxys.entities.TeamsEntity;
 import com.fcfb.fcfb_deoxys.repositories.GamesRepository;
-import com.fcfb.fcfb_deoxys.repositories.SeasonsRepository;
+import com.fcfb.fcfb_deoxys.repositories.GameDatesRepository;
 import com.fcfb.fcfb_deoxys.repositories.TeamsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:8082")
@@ -28,7 +27,7 @@ public class GamesController {
     TeamsRepository teamsRepository;
 
     @Autowired
-    SeasonsRepository seasonsRepository;
+    GameDatesRepository seasonsRepository;
 
     /**
      * Add a new game
@@ -69,26 +68,6 @@ public class GamesController {
             teamsRepository.save(homeTeam);
             teamsRepository.save(awayTeam);
 
-            // Based on the thread timestamp, get the current season
-            Integer season = 0;
-            Iterable<SeasonsEntity> seasons = seasonsRepository.findAll();
-            String gameDate = gameRequest.getThreadTimestamp();
-            LocalDate currentDate = LocalDate.parse(gameDate, java.time.format.DateTimeFormatter.ofPattern("MM/dd/yyyy"));
-
-            for (SeasonsEntity seasonData : seasons) {
-                LocalDate startDate = LocalDate.parse(seasonData.getStartDate(), java.time.format.DateTimeFormatter.ofPattern("MM/dd/yyyy"));
-                LocalDate postseasonEndDate = (seasonData.getPostseasonEndDate() != null) ? LocalDate.parse(seasonData.getPostseasonEndDate(), java.time.format.DateTimeFormatter.ofPattern("MM/dd/yyyy")) : null;
-
-                if (currentDate.isAfter(startDate) && postseasonEndDate == null){
-                    season = seasonData.getSeasonNumber();
-                    break;
-                }
-                if (currentDate.isAfter(startDate) && currentDate.isBefore(postseasonEndDate)){
-                    season = seasonData.getSeasonNumber();
-                    break;
-                }
-            }
-
             GamesEntity newGame = new GamesEntity(
                     gameRequest.getGameId(),
                     gameRequest.getHomeTeam(),
@@ -118,7 +97,8 @@ public class GamesController {
                     gameRequest.getWinProbability(),
                     gameRequest.getIsFinal(),
                     gameRequest.getIsOt(),
-                    season,
+                    gameRequest.getSeason(),
+                    gameRequest.getWeek(),
                     gameRequest.getWaitingOn(),
                     gameRequest.getGameId() + "winprobability.png",
                     gameRequest.getGameId() + "_scoreplot.png",
@@ -202,7 +182,8 @@ public class GamesController {
                     gameRequest.getAwayScoopAndScores(),
                     gameRequest.getAwayPickSixes(),
                     gameRequest.getAwayKickoffDefensiveTouchdowns(),
-                    gameRequest.getThreadTimestamp()
+                    gameRequest.getThreadTimestamp(),
+                    gameRequest.getSpread()
             );
             gamesRepository.save(newGame);
             return new ResponseEntity<>("Game added", HttpStatus.OK);

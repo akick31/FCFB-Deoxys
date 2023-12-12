@@ -69,9 +69,6 @@ public class TeamsEntity {
     @Basic
     @Column(name = "overall_conference_losses")
     private Integer overallConferenceLosses;
-    @Basic
-    @Column(name = "elo")
-    private Integer elo;
 
     public Integer getId() {
         return id;
@@ -233,24 +230,16 @@ public class TeamsEntity {
         this.overallConferenceLosses = overallConferenceLosses;
     }
 
-    public Integer getElo() {
-        return elo;
-    }
-
-    public void setElo(Integer elo) {
-        this.elo = elo;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TeamsEntity that = (TeamsEntity) o;
-        return Objects.equals(id, that.id) && Objects.equals(logo, that.logo) && Objects.equals(coach, that.coach) && Objects.equals(coachesPollRanking, that.coachesPollRanking) && Objects.equals(name, that.name) && Objects.equals(playoffCommitteeRanking, that.playoffCommitteeRanking) && Objects.equals(primaryColor, that.primaryColor) && Objects.equals(secondaryColor, that.secondaryColor) && Objects.equals(subdivision, that.subdivision) && Objects.equals(offensivePlaybook, that.offensivePlaybook) && Objects.equals(defensivePlaybook, that.defensivePlaybook) && Objects.equals(conference, that.conference) && Objects.equals(currentWins, that.currentWins) && Objects.equals(currentLosses, that.currentLosses) && Objects.equals(overallWins, that.overallWins) && Objects.equals(overallLosses, that.overallLosses) && Objects.equals(currentConferenceWins, that.currentConferenceWins) && Objects.equals(currentConferenceLosses, that.currentConferenceLosses) && Objects.equals(overallConferenceWins, that.overallConferenceWins) && Objects.equals(overallConferenceLosses, that.overallConferenceLosses) && Objects.equals(elo, that.elo);
+        return Objects.equals(id, that.id) && Objects.equals(logo, that.logo) && Objects.equals(coach, that.coach) && Objects.equals(coachesPollRanking, that.coachesPollRanking) && Objects.equals(name, that.name) && Objects.equals(playoffCommitteeRanking, that.playoffCommitteeRanking) && Objects.equals(primaryColor, that.primaryColor) && Objects.equals(secondaryColor, that.secondaryColor) && Objects.equals(subdivision, that.subdivision) && Objects.equals(offensivePlaybook, that.offensivePlaybook) && Objects.equals(defensivePlaybook, that.defensivePlaybook) && Objects.equals(conference, that.conference) && Objects.equals(currentWins, that.currentWins) && Objects.equals(currentLosses, that.currentLosses) && Objects.equals(overallWins, that.overallWins) && Objects.equals(overallLosses, that.overallLosses) && Objects.equals(currentConferenceWins, that.currentConferenceWins) && Objects.equals(currentConferenceLosses, that.currentConferenceLosses) && Objects.equals(overallConferenceWins, that.overallConferenceWins) && Objects.equals(overallConferenceLosses, that.overallConferenceLosses);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, logo, coach, coachesPollRanking, name, playoffCommitteeRanking, primaryColor, secondaryColor, subdivision, offensivePlaybook, defensivePlaybook, conference, currentWins, currentLosses, overallWins, overallLosses, currentConferenceWins, currentConferenceLosses, overallConferenceWins, overallConferenceLosses, elo);
+        return Objects.hash(id, logo, coach, coachesPollRanking, name, playoffCommitteeRanking, primaryColor, secondaryColor, subdivision, offensivePlaybook, defensivePlaybook, conference, currentWins, currentLosses, overallWins, overallLosses, currentConferenceWins, currentConferenceLosses, overallConferenceWins, overallConferenceLosses);
     }
 }

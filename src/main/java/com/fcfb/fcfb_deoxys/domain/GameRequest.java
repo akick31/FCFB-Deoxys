@@ -22,6 +22,8 @@ public class GameRequest {
     private Integer yardsToGo;
     private Byte isFinal;
     private Byte isOt;
+    private Integer season;
+    private Integer week;
     private String waitingOn;
     private String gistLink;
     private Integer numPlays;
@@ -106,6 +108,7 @@ public class GameRequest {
     private Integer awayKickoffDefensiveTouchdowns;
     private Double winProbability;
     private String threadTimestamp;
+    private Integer spread;
 
     public Integer getQuarter() {
         return quarter;
@@ -189,6 +192,14 @@ public class GameRequest {
 
     public Byte getIsOt() {
         return isOt;
+    }
+
+    public Integer getSeason() {
+        return season;
+    }
+
+    public Integer getWeek() {
+        return week;
     }
 
     public String getWaitingOn() {
@@ -525,5 +536,9 @@ public class GameRequest {
 
     public String getThreadTimestamp() {
         return threadTimestamp;
+    }
+
+    public Integer getSpread() {
+        return spread;
     }
 }
