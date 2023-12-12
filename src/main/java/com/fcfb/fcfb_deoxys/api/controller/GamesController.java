@@ -1,18 +1,16 @@
-package com.fcfb.fcfb_deoxys.controllers;
+package com.fcfb.fcfb_deoxys.api.controller;
 
-import com.fcfb.fcfb_deoxys.domain.GameRequest;
-import com.fcfb.fcfb_deoxys.entities.GamesEntity;
-import com.fcfb.fcfb_deoxys.entities.GameDatesEntity;
-import com.fcfb.fcfb_deoxys.entities.TeamsEntity;
-import com.fcfb.fcfb_deoxys.repositories.GamesRepository;
-import com.fcfb.fcfb_deoxys.repositories.GameDatesRepository;
-import com.fcfb.fcfb_deoxys.repositories.TeamsRepository;
+import com.fcfb.fcfb_deoxys.api.model.GameRequest;
+import com.fcfb.fcfb_deoxys.domain.GamesEntity;
+import com.fcfb.fcfb_deoxys.domain.TeamsEntity;
+import com.fcfb.fcfb_deoxys.api.repositories.GamesRepository;
+import com.fcfb.fcfb_deoxys.api.repositories.GameDatesRepository;
+import com.fcfb.fcfb_deoxys.api.repositories.TeamsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:8082")
@@ -41,8 +39,8 @@ public class GamesController {
         if (gameData.isPresent()) {
             return new ResponseEntity<>("Game already exists", HttpStatus.CONFLICT);
         } else {
-            TeamsEntity homeTeam = teamsRepository.findByTeamName(gameRequest.getHomeTeam()).get();
-            TeamsEntity awayTeam = teamsRepository.findByTeamName(gameRequest.getAwayTeam()).get();
+            TeamsEntity homeTeam = teamsRepository.findByName(gameRequest.getHomeTeam()).get();
+            TeamsEntity awayTeam = teamsRepository.findByName(gameRequest.getAwayTeam()).get();
 
             // If the coaches don't match, add them to the team
             if (!homeTeam.getCoach().contains(gameRequest.getHomeCoach())) {
@@ -95,6 +93,7 @@ public class GamesController {
                     gameRequest.getThread(),
                     gameRequest.getGistLink(),
                     gameRequest.getWinProbability(),
+                    gameRequest.getGameLength(),
                     gameRequest.getIsFinal(),
                     gameRequest.getIsOt(),
                     gameRequest.getSeason(),

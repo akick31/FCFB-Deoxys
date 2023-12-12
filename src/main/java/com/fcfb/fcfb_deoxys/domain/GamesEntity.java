@@ -1,10 +1,10 @@
-package com.fcfb.fcfb_deoxys.entities;
+package com.fcfb.fcfb_deoxys.domain;
 
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "games", schema = "deoxys")
+@Table(name = "games", schema = "deoxys", catalog = "")
 public class GamesEntity {
     @Basic
     @Column(name = "game_id")
@@ -85,6 +85,9 @@ public class GamesEntity {
     @Column(name = "win_probability")
     private Double winProbability;
     @Basic
+    @Column(name = "game_length")
+    private Integer gameLength;
+    @Basic
     @Column(name = "is_final")
     private Byte isFinal;
     @Basic
@@ -93,6 +96,9 @@ public class GamesEntity {
     @Basic
     @Column(name = "season")
     private Integer season;
+    @Basic
+    @Column(name = "week")
+    private Integer week;
     @Basic
     @Column(name = "waiting_on")
     private String waitingOn;
@@ -350,16 +356,13 @@ public class GamesEntity {
     @Column(name = "id")
     private int id;
     @Basic
-    @Column(name = "week")
-    private Integer week;
-    @Basic
     @Column(name = "spread")
     private Integer spread;
 
     public GamesEntity() {
     }
 
-    public GamesEntity(String gameId, String homeTeam, String awayTeam, String homeCoach, String awayCoach, String homeOffensivePlaybook, String awayOffensivePlaybook, String homeDefensivePlaybook, String awayDefensivePlaybook, Integer homeScore, Integer awayScore, String possession, Integer quarter, String clock, String ballLocation, Integer down, Integer yardsToGo, Integer homeWins, Integer homeLosses, Integer awayWins, Integer awayLosses, String scorebug, String subdivision, String thread, String gistLink, Double winProbability, Byte isFinal, Byte isOt, Integer season, Integer week, String waitingOn, String winProbabilityPlot, String scorePlot, Integer numPlays, Integer homeTimeouts, Integer awayTimeouts, String gameTimer, Integer homeTotalYards, Integer awayTotalYards, Integer homePassingYards, Integer awayPassingYards, Integer homeRushingYards, Integer awayRushingYards, String homeTimeOfPossession, String awayTimeOfPossession, Double homeAverageDiffOnOffense, Double homeAverageDiffOnDefense, Double awayAverageDiffOnOffense, Double awayAverageDiffOnDefense, Integer homeFieldGoalAttempts, Integer homeFieldGoalMakes, Double homeFieldGoalPercentage, Integer awayFieldGoalAttempts, Integer awayFieldGoalMakes, Double awayFieldGoalPercentage, Integer homeLongestFieldGoal, Integer awayLongestFieldGoal, Integer homeLongestTouchdown, Integer awayLongestTouchdown, Integer homePassingAttempts, Integer homePassingCompletions, Double homePassingPercentage, Integer awayPassingAttempts, Integer awayPassingCompletions, Double awayPassingPercentage, Integer homeRushingAttempts, Integer homeRushingSuccesses, Double homeRushingPercentage, Integer awayRushingAttempts, Integer awayRushingSuccesses, Double awayRushingPercentage, Integer homeThirdDownAttempts, Integer homeThirdDownSuccesses, Double homeThirdDownPercentage, Integer awayThirdDownAttempts, Integer awayThirdDownSuccesses, Double awayThirdDownPercentage, Integer homeFourthDownAttempts, Integer homeFourthDownSuccesses, Double homeFourthDownPercentage, Integer awayFourthDownAttempts, Integer awayFourthDownSuccesses, Double awayFourthDownPercentage, Integer homeTwoPointAttempts, Integer homeTwoPointSuccesses, Double homeTwoPointPercentage, Integer awayTwoPointAttempts, Integer awayTwoPointSuccesses, Double awayTwoPointPercentage, Integer homeOnsideKickAttempts, Integer homeOnsideKickSuccesses, Double homeOnsideKickPercentage, Integer awayOnsideKickAttempts, Integer awayOnsideKickSuccesses, Double awayOnsideKickPercentage, Integer homeOffensivePlays, Integer homeDefensivePlays, Integer awayOffensivePlays, Integer awayDefensivePlays, Integer homeTurnovers, Integer homeFumbles, Integer homeInterceptions, Integer awayTurnovers, Integer awayFumbles, Integer awayInterceptions, Integer homeDefensiveTouchdowns, Integer homeScoopAndScores, Integer homePickSixes, Integer homeKickoffDefensiveTouchdowns, Integer awayDefensiveTouchdowns, Integer awayScoopAndScores, Integer awayPickSixes, Integer awayKickoffDefensiveTouchdowns, String threadTimestamp, Integer spread) {
+    public GamesEntity(String gameId, String homeTeam, String awayTeam, String homeCoach, String awayCoach, String homeOffensivePlaybook, String awayOffensivePlaybook, String homeDefensivePlaybook, String awayDefensivePlaybook, Integer homeScore, Integer awayScore, String possession, Integer quarter, String clock, String ballLocation, Integer down, Integer yardsToGo, Integer homeWins, Integer homeLosses, Integer awayWins, Integer awayLosses, String scorebug, String subdivision, String thread, String gistLink, Double winProbability, Integer gameLength, Byte isFinal, Byte isOt, Integer season, Integer week, String waitingOn, String winProbabilityPlot, String scorePlot, Integer numPlays, Integer homeTimeouts, Integer awayTimeouts, String gameTimer, Integer homeTotalYards, Integer awayTotalYards, Integer homePassingYards, Integer awayPassingYards, Integer homeRushingYards, Integer awayRushingYards, String homeTimeOfPossession, String awayTimeOfPossession, Double homeAverageDiffOnOffense, Double homeAverageDiffOnDefense, Double awayAverageDiffOnOffense, Double awayAverageDiffOnDefense, Integer homeFieldGoalAttempts, Integer homeFieldGoalMakes, Double homeFieldGoalPercentage, Integer awayFieldGoalAttempts, Integer awayFieldGoalMakes, Double awayFieldGoalPercentage, Integer homeLongestFieldGoal, Integer awayLongestFieldGoal, Integer homeLongestTouchdown, Integer awayLongestTouchdown, Integer homePassingAttempts, Integer homePassingCompletions, Double homePassingPercentage, Integer awayPassingAttempts, Integer awayPassingCompletions, Double awayPassingPercentage, Integer homeRushingAttempts, Integer homeRushingSuccesses, Double homeRushingPercentage, Integer awayRushingAttempts, Integer awayRushingSuccesses, Double awayRushingPercentage, Integer homeThirdDownAttempts, Integer homeThirdDownSuccesses, Double homeThirdDownPercentage, Integer awayThirdDownAttempts, Integer awayThirdDownSuccesses, Double awayThirdDownPercentage, Integer homeFourthDownAttempts, Integer homeFourthDownSuccesses, Double homeFourthDownPercentage, Integer awayFourthDownAttempts, Integer awayFourthDownSuccesses, Double awayFourthDownPercentage, Integer homeTwoPointAttempts, Integer homeTwoPointSuccesses, Double homeTwoPointPercentage, Integer awayTwoPointAttempts, Integer awayTwoPointSuccesses, Double awayTwoPointPercentage, Integer homeOnsideKickAttempts, Integer homeOnsideKickSuccesses, Double homeOnsideKickPercentage, Integer awayOnsideKickAttempts, Integer awayOnsideKickSuccesses, Double awayOnsideKickPercentage, Integer homeOffensivePlays, Integer homeDefensivePlays, Integer awayOffensivePlays, Integer awayDefensivePlays, Integer homeTurnovers, Integer homeFumbles, Integer homeInterceptions, Integer awayTurnovers, Integer awayFumbles, Integer awayInterceptions, Integer homeDefensiveTouchdowns, Integer homeScoopAndScores, Integer homePickSixes, Integer homeKickoffDefensiveTouchdowns, Integer awayDefensiveTouchdowns, Integer awayScoopAndScores, Integer awayPickSixes, Integer awayKickoffDefensiveTouchdowns, String threadTimestamp, Integer spread) {
         this.gameId = gameId;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
@@ -386,6 +389,7 @@ public class GamesEntity {
         this.thread = thread;
         this.gistLink = gistLink;
         this.winProbability = winProbability;
+        this.gameLength = gameLength;
         this.isFinal = isFinal;
         this.isOt = isOt;
         this.season = season;
@@ -1416,5 +1420,13 @@ public class GamesEntity {
 
     public void setSpread(Integer spread) {
         this.spread = spread;
+    }
+
+    public Integer getGameLength() {
+        return gameLength;
+    }
+
+    public void setGameLength(Integer gameLength) {
+        this.gameLength = gameLength;
     }
 }
