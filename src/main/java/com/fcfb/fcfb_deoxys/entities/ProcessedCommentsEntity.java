@@ -1,4 +1,4 @@
-package com.fcfb.fcfb_deoxys.domain.entities;
+package com.fcfb.fcfb_deoxys.entities;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
