@@ -1,6 +1,6 @@
-package com.fcfb.fcfb_deoxys.repositories;
+package com.fcfb.fcfb_deoxys.api.repositories;
 
-import com.fcfb.fcfb_deoxys.entities.TeamsEntity;
+import com.fcfb.fcfb_deoxys.domain.TeamsEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,6 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface TeamsRepository extends CrudRepository<TeamsEntity, String> {
-    Optional<TeamsEntity> findByTeamName(String teamName);
+    Optional<TeamsEntity> findByName(String teamName);
 }
 

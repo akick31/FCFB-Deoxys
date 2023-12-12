@@ -1,6 +1,6 @@
-package com.fcfb.fcfb_deoxys.repositories;
+package com.fcfb.fcfb_deoxys.api.repositories;
 
-import com.fcfb.fcfb_deoxys.entities.ProcessedCommentsEntity;
+import com.fcfb.fcfb_deoxys.domain.ProcessedCommentsEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

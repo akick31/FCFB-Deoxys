@@ -1,7 +1,7 @@
-package com.fcfb.fcfb_deoxys.controllers;
+package com.fcfb.fcfb_deoxys.api.controller;
 
-import com.fcfb.fcfb_deoxys.entities.GamePlaysEntity;
-import com.fcfb.fcfb_deoxys.repositories.GamePlaysRepository;
+import com.fcfb.fcfb_deoxys.domain.GamePlaysEntity;
+import com.fcfb.fcfb_deoxys.api.repositories.GamePlaysRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

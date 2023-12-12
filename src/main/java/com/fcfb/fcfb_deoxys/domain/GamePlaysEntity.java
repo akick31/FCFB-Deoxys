@@ -1,4 +1,4 @@
-package com.fcfb.fcfb_deoxys.entities;
+package com.fcfb.fcfb_deoxys.domain;
 
 import javax.persistence.*;
 import java.util.Objects;

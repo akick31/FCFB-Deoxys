@@ -1,15 +1,12 @@
-package com.fcfb.fcfb_deoxys.entities;
+package com.fcfb.fcfb_deoxys.domain;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "game_dates", schema = "deoxys", catalog = "")
+@Table(name = "game_dates", schema = "deoxys")
 public class GameDatesEntity {
-    @Basic
+    @Id
     @Column(name = "season_number")
     private Integer seasonNumber;
     @Basic

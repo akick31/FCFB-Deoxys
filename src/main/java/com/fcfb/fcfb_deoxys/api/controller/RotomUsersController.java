@@ -1,7 +1,7 @@
-package com.fcfb.fcfb_deoxys.controllers;
+package com.fcfb.fcfb_deoxys.api.controller;
 
-import com.fcfb.fcfb_deoxys.entities.RotomUsersEntity;
-import com.fcfb.fcfb_deoxys.repositories.RotomUsersRepository;
+import com.fcfb.fcfb_deoxys.domain.RotomUsersEntity;
+import com.fcfb.fcfb_deoxys.api.repositories.RotomUsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

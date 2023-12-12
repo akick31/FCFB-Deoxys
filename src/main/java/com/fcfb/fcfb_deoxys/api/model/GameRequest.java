@@ -1,4 +1,4 @@
-package com.fcfb.fcfb_deoxys.domain;
+package com.fcfb.fcfb_deoxys.api.model;
 
 public class GameRequest {
     private Integer quarter;
@@ -20,12 +20,14 @@ public class GameRequest {
     private String possession;
     private Integer down;
     private Integer yardsToGo;
+    private String gistLink;
+    private Double winProbability;
+    private Integer gameLength;
     private Byte isFinal;
     private Byte isOt;
     private Integer season;
     private Integer week;
     private String waitingOn;
-    private String gistLink;
     private Integer numPlays;
     private Integer homeTimeouts;
     private Integer awayTimeouts;
@@ -106,7 +108,6 @@ public class GameRequest {
     private Integer awayScoopAndScores;
     private Integer awayPickSixes;
     private Integer awayKickoffDefensiveTouchdowns;
-    private Double winProbability;
     private String threadTimestamp;
     private Integer spread;
 
@@ -184,6 +185,10 @@ public class GameRequest {
 
     public Integer getYardsToGo() {
         return yardsToGo;
+    }
+
+    public Integer getGameLength() {
+        return gameLength;
     }
 
     public Byte getIsFinal() {
