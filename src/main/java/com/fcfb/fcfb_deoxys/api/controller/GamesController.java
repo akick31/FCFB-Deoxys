@@ -43,24 +43,24 @@ public class GamesController {
             TeamsEntity awayTeam = teamsRepository.findByName(gameRequest.getAwayTeam()).get();
 
             // If the coaches don't match, add them to the team
-            if (!homeTeam.getCoach().contains(gameRequest.getHomeCoach())) {
+            if (homeTeam.getCoach() == null || !homeTeam.getCoach().contains(gameRequest.getHomeCoach())) {
                 homeTeam.setCoach(gameRequest.getHomeCoach());
             }
-            if (!awayTeam.getCoach().contains(gameRequest.getAwayCoach())) {
+            if (awayTeam.getCoach() == null || !awayTeam.getCoach().contains(gameRequest.getAwayCoach())) {
                 awayTeam.setCoach(gameRequest.getAwayCoach());
             }
 
             // If the playbooks don't match, add them to the team
-            if (!homeTeam.getOffensivePlaybook().contains(gameRequest.getHomeOffensivePlaybook())) {
+            if (homeTeam.getOffensivePlaybook() == null || !homeTeam.getOffensivePlaybook().contains(gameRequest.getHomeOffensivePlaybook())) {
                 homeTeam.setOffensivePlaybook(gameRequest.getHomeOffensivePlaybook());
             }
-            if (!awayTeam.getOffensivePlaybook().contains(gameRequest.getAwayOffensivePlaybook())) {
+            if (awayTeam.getOffensivePlaybook() == null || !awayTeam.getOffensivePlaybook().contains(gameRequest.getAwayOffensivePlaybook())) {
                 awayTeam.setOffensivePlaybook(gameRequest.getAwayOffensivePlaybook());
             }
-            if (!homeTeam.getDefensivePlaybook().contains(gameRequest.getHomeDefensivePlaybook())) {
+            if (homeTeam.getDefensivePlaybook() == null || !homeTeam.getDefensivePlaybook().contains(gameRequest.getHomeDefensivePlaybook())) {
                 homeTeam.setDefensivePlaybook(gameRequest.getHomeDefensivePlaybook());
             }
-            if (!awayTeam.getDefensivePlaybook().contains(gameRequest.getAwayDefensivePlaybook())) {
+            if (awayTeam.getDefensivePlaybook() == null || !awayTeam.getDefensivePlaybook().contains(gameRequest.getAwayDefensivePlaybook())) {
                 awayTeam.setDefensivePlaybook(gameRequest.getAwayDefensivePlaybook());
             }
             teamsRepository.save(homeTeam);
@@ -308,7 +308,9 @@ public class GamesController {
             _game.setAwayScoopAndScores(gameRequest.getAwayScoopAndScores());
             _game.setAwayPickSixes(gameRequest.getAwayPickSixes());
             _game.setAwayKickoffDefensiveTouchdowns(gameRequest.getAwayKickoffDefensiveTouchdowns());
+            _game.setThreadTimestamp(gameRequest.getThreadTimestamp());
 
+            gamesRepository.save(_game);
 
             return new ResponseEntity<>("Game updated", HttpStatus.OK);
         } else {

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "games", schema = "deoxys", catalog = "")
+@Table(name = "games", schema = "deoxys")
 public class GamesEntity {
     @Basic
     @Column(name = "game_id")
@@ -89,10 +89,10 @@ public class GamesEntity {
     private Integer gameLength;
     @Basic
     @Column(name = "is_final")
-    private Byte isFinal;
+    private Boolean isFinal;
     @Basic
     @Column(name = "is_ot")
-    private Byte isOt;
+    private Boolean isOt;
     @Basic
     @Column(name = "season")
     private Integer season;
@@ -362,7 +362,7 @@ public class GamesEntity {
     public GamesEntity() {
     }
 
-    public GamesEntity(String gameId, String homeTeam, String awayTeam, String homeCoach, String awayCoach, String homeOffensivePlaybook, String awayOffensivePlaybook, String homeDefensivePlaybook, String awayDefensivePlaybook, Integer homeScore, Integer awayScore, String possession, Integer quarter, String clock, String ballLocation, Integer down, Integer yardsToGo, Integer homeWins, Integer homeLosses, Integer awayWins, Integer awayLosses, String scorebug, String subdivision, String thread, String gistLink, Double winProbability, Integer gameLength, Byte isFinal, Byte isOt, Integer season, Integer week, String waitingOn, String winProbabilityPlot, String scorePlot, Integer numPlays, Integer homeTimeouts, Integer awayTimeouts, String gameTimer, Integer homeTotalYards, Integer awayTotalYards, Integer homePassingYards, Integer awayPassingYards, Integer homeRushingYards, Integer awayRushingYards, String homeTimeOfPossession, String awayTimeOfPossession, Double homeAverageDiffOnOffense, Double homeAverageDiffOnDefense, Double awayAverageDiffOnOffense, Double awayAverageDiffOnDefense, Integer homeFieldGoalAttempts, Integer homeFieldGoalMakes, Double homeFieldGoalPercentage, Integer awayFieldGoalAttempts, Integer awayFieldGoalMakes, Double awayFieldGoalPercentage, Integer homeLongestFieldGoal, Integer awayLongestFieldGoal, Integer homeLongestTouchdown, Integer awayLongestTouchdown, Integer homePassingAttempts, Integer homePassingCompletions, Double homePassingPercentage, Integer awayPassingAttempts, Integer awayPassingCompletions, Double awayPassingPercentage, Integer homeRushingAttempts, Integer homeRushingSuccesses, Double homeRushingPercentage, Integer awayRushingAttempts, Integer awayRushingSuccesses, Double awayRushingPercentage, Integer homeThirdDownAttempts, Integer homeThirdDownSuccesses, Double homeThirdDownPercentage, Integer awayThirdDownAttempts, Integer awayThirdDownSuccesses, Double awayThirdDownPercentage, Integer homeFourthDownAttempts, Integer homeFourthDownSuccesses, Double homeFourthDownPercentage, Integer awayFourthDownAttempts, Integer awayFourthDownSuccesses, Double awayFourthDownPercentage, Integer homeTwoPointAttempts, Integer homeTwoPointSuccesses, Double homeTwoPointPercentage, Integer awayTwoPointAttempts, Integer awayTwoPointSuccesses, Double awayTwoPointPercentage, Integer homeOnsideKickAttempts, Integer homeOnsideKickSuccesses, Double homeOnsideKickPercentage, Integer awayOnsideKickAttempts, Integer awayOnsideKickSuccesses, Double awayOnsideKickPercentage, Integer homeOffensivePlays, Integer homeDefensivePlays, Integer awayOffensivePlays, Integer awayDefensivePlays, Integer homeTurnovers, Integer homeFumbles, Integer homeInterceptions, Integer awayTurnovers, Integer awayFumbles, Integer awayInterceptions, Integer homeDefensiveTouchdowns, Integer homeScoopAndScores, Integer homePickSixes, Integer homeKickoffDefensiveTouchdowns, Integer awayDefensiveTouchdowns, Integer awayScoopAndScores, Integer awayPickSixes, Integer awayKickoffDefensiveTouchdowns, String threadTimestamp, Integer spread) {
+    public GamesEntity(String gameId, String homeTeam, String awayTeam, String homeCoach, String awayCoach, String homeOffensivePlaybook, String awayOffensivePlaybook, String homeDefensivePlaybook, String awayDefensivePlaybook, Integer homeScore, Integer awayScore, String possession, Integer quarter, String clock, String ballLocation, Integer down, Integer yardsToGo, Integer homeWins, Integer homeLosses, Integer awayWins, Integer awayLosses, String scorebug, String subdivision, String thread, String gistLink, Double winProbability, Integer gameLength, Boolean isFinal, Boolean isOt, Integer season, Integer week, String waitingOn, String winProbabilityPlot, String scorePlot, Integer numPlays, Integer homeTimeouts, Integer awayTimeouts, String gameTimer, Integer homeTotalYards, Integer awayTotalYards, Integer homePassingYards, Integer awayPassingYards, Integer homeRushingYards, Integer awayRushingYards, String homeTimeOfPossession, String awayTimeOfPossession, Double homeAverageDiffOnOffense, Double homeAverageDiffOnDefense, Double awayAverageDiffOnOffense, Double awayAverageDiffOnDefense, Integer homeFieldGoalAttempts, Integer homeFieldGoalMakes, Double homeFieldGoalPercentage, Integer awayFieldGoalAttempts, Integer awayFieldGoalMakes, Double awayFieldGoalPercentage, Integer homeLongestFieldGoal, Integer awayLongestFieldGoal, Integer homeLongestTouchdown, Integer awayLongestTouchdown, Integer homePassingAttempts, Integer homePassingCompletions, Double homePassingPercentage, Integer awayPassingAttempts, Integer awayPassingCompletions, Double awayPassingPercentage, Integer homeRushingAttempts, Integer homeRushingSuccesses, Double homeRushingPercentage, Integer awayRushingAttempts, Integer awayRushingSuccesses, Double awayRushingPercentage, Integer homeThirdDownAttempts, Integer homeThirdDownSuccesses, Double homeThirdDownPercentage, Integer awayThirdDownAttempts, Integer awayThirdDownSuccesses, Double awayThirdDownPercentage, Integer homeFourthDownAttempts, Integer homeFourthDownSuccesses, Double homeFourthDownPercentage, Integer awayFourthDownAttempts, Integer awayFourthDownSuccesses, Double awayFourthDownPercentage, Integer homeTwoPointAttempts, Integer homeTwoPointSuccesses, Double homeTwoPointPercentage, Integer awayTwoPointAttempts, Integer awayTwoPointSuccesses, Double awayTwoPointPercentage, Integer homeOnsideKickAttempts, Integer homeOnsideKickSuccesses, Double homeOnsideKickPercentage, Integer awayOnsideKickAttempts, Integer awayOnsideKickSuccesses, Double awayOnsideKickPercentage, Integer homeOffensivePlays, Integer homeDefensivePlays, Integer awayOffensivePlays, Integer awayDefensivePlays, Integer homeTurnovers, Integer homeFumbles, Integer homeInterceptions, Integer awayTurnovers, Integer awayFumbles, Integer awayInterceptions, Integer homeDefensiveTouchdowns, Integer homeScoopAndScores, Integer homePickSixes, Integer homeKickoffDefensiveTouchdowns, Integer awayDefensiveTouchdowns, Integer awayScoopAndScores, Integer awayPickSixes, Integer awayKickoffDefensiveTouchdowns, String threadTimestamp, Integer spread) {
         this.gameId = gameId;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
@@ -689,19 +689,19 @@ public class GamesEntity {
         this.winProbability = winProbability;
     }
 
-    public Byte getIsFinal() {
+    public Boolean getIsFinal() {
         return isFinal;
     }
 
-    public void setIsFinal(Byte isFinal) {
+    public void setIsFinal(Boolean isFinal) {
         this.isFinal = isFinal;
     }
 
-    public Byte getIsOt() {
+    public Boolean getIsOt() {
         return isOt;
     }
 
-    public void setIsOt(Byte isOt) {
+    public void setIsOt(Boolean isOt) {
         this.isOt = isOt;
     }
 
@@ -1428,5 +1428,127 @@ public class GamesEntity {
 
     public void setGameLength(Integer gameLength) {
         this.gameLength = gameLength;
+    }
+
+    @Override
+    public String toString() {
+        return "{\n" +
+                "  \"gameId\": \"" + gameId + "\",\n" +
+                "  \"homeTeam\": \"" + homeTeam + "\",\n" +
+                "  \"awayTeam\": \"" + awayTeam + "\",\n" +
+                "  \"homeCoach\": \"" + homeCoach + "\",\n" +
+                "  \"awayCoach\": \"" + awayCoach + "\",\n" +
+                "  \"homeOffensivePlaybook\": \"" + homeOffensivePlaybook + "\",\n" +
+                "  \"awayOffensivePlaybook\": \"" + awayOffensivePlaybook + "\",\n" +
+                "  \"homeDefensivePlaybook\": \"" + homeDefensivePlaybook + "\",\n" +
+                "  \"awayDefensivePlaybook\": \"" + awayDefensivePlaybook + "\",\n" +
+                "  \"homeScore\": " + homeScore + ",\n" +
+                "  \"awayScore\": " + awayScore + ",\n" +
+                "  \"possession\": \"" + possession + "\",\n" +
+                "  \"quarter\": " + quarter + ",\n" +
+                "  \"clock\": \"" + clock + "\",\n" +
+                "  \"ballLocation\": \"" + ballLocation + "\",\n" +
+                "  \"down\": " + down + ",\n" +
+                "  \"yardsToGo\": " + yardsToGo + ",\n" +
+                "  \"homeWins\": " + homeWins + ",\n" +
+                "  \"homeLosses\": " + homeLosses + ",\n" +
+                "  \"awayWins\": " + awayWins + ",\n" +
+                "  \"awayLosses\": " + awayLosses + ",\n" +
+                "  \"scorebug\": \"" + scorebug + "\",\n" +
+                "  \"subdivision\": \"" + subdivision + "\",\n" +
+                "  \"thread\": \"" + thread + "\",\n" +
+                "  \"gistLink\": \"" + gistLink + "\",\n" +
+                "  \"winProbability\": " + winProbability + ",\n" +
+                "  \"gameLength\": " + gameLength + ",\n" +
+                "  \"isFinal\": " + isFinal + ",\n" +
+                "  \"isOt\": " + isOt + ",\n" +
+                "  \"season\": " + season + ",\n" +
+                "  \"week\": " + week + ",\n" +
+                "  \"waitingOn\": \"" + waitingOn + "\",\n" +
+                "  \"winProbabilityPlot\": \"" + winProbabilityPlot + "\",\n" +
+                "  \"scorePlot\": \"" + scorePlot + "\",\n" +
+                "  \"numPlays\": " + numPlays + ",\n" +
+                "  \"homeTimeouts\": " + homeTimeouts + ",\n" +
+                "  \"awayTimeouts\": " + awayTimeouts + ",\n" +
+                "  \"gameTimer\": \"" + gameTimer + "\",\n" +
+                "  \"homeTotalYards\": " + homeTotalYards + ",\n" +
+                "  \"awayTotalYards\": " + awayTotalYards + ",\n" +
+                "  \"homePassingYards\": " + homePassingYards + ",\n" +
+                "  \"awayPassingYards\": " + awayPassingYards + ",\n" +
+                "  \"homeRushingYards\": " + homeRushingYards + ",\n" +
+                "  \"awayRushingYards\": " + awayRushingYards + ",\n" +
+                "  \"homeTimeOfPossession\": \"" + homeTimeOfPossession + "\",\n" +
+                "  \"awayTimeOfPossession\": \"" + awayTimeOfPossession + "\",\n" +
+                "  \"homeAverageDiffOnOffense\": " + homeAverageDiffOnOffense + ",\n" +
+                "  \"homeAverageDiffOnDefense\": " + homeAverageDiffOnDefense + ",\n" +
+                "  \"awayAverageDiffOnOffense\": " + awayAverageDiffOnOffense + ",\n" +
+                "  \"awayAverageDiffOnDefense\": " + awayAverageDiffOnDefense + ",\n" +
+                "  \"homeFieldGoalAttempts\": " + homeFieldGoalAttempts + ",\n" +
+                "  \"homeFieldGoalMakes\": " + homeFieldGoalMakes + ",\n" +
+                "  \"homeFieldGoalPercentage\": " + homeFieldGoalPercentage + ",\n" +
+                "  \"awayFieldGoalAttempts\": " + awayFieldGoalAttempts + ",\n" +
+                "  \"awayFieldGoalMakes\": " + awayFieldGoalMakes + ",\n" +
+                "  \"awayFieldGoalPercentage\": " + awayFieldGoalPercentage + ",\n" +
+                "  \"homeLongestFieldGoal\": " + homeLongestFieldGoal + ",\n" +
+                "  \"awayLongestFieldGoal\": " + awayLongestFieldGoal + ",\n" +
+                "  \"homeLongestTouchdown\": " + homeLongestTouchdown + ",\n" +
+                "  \"awayLongestTouchdown\": " + awayLongestTouchdown + ",\n" +
+                "  \"homePassingAttempts\": " + homePassingAttempts + ",\n" +
+                "  \"homePassingCompletions\": " + homePassingCompletions + ",\n" +
+                "  \"homePassingPercentage\": " + homePassingPercentage + ",\n" +
+                "  \"awayPassingAttempts\": " + awayPassingAttempts + ",\n" +
+                "  \"awayPassingCompletions\": " + awayPassingCompletions + ",\n" +
+                "  \"awayPassingPercentage\": " + awayPassingPercentage + ",\n" +
+                "  \"homeRushingAttempts\": " + homeRushingAttempts + ",\n" +
+                "  \"homeRushingSuccesses\": " + homeRushingSuccesses + ",\n" +
+                "  \"homeRushingPercentage\": " + homeRushingPercentage + ",\n" +
+                "  \"awayRushingAttempts\": " + awayRushingAttempts + ",\n" +
+                "  \"awayRushingSuccesses\": " + awayRushingSuccesses + ",\n" +
+                "  \"awayRushingPercentage\": " + awayRushingPercentage + ",\n" +
+                "  \"homeThirdDownAttempts\": " + homeThirdDownAttempts + ",\n" +
+                "  \"homeThirdDownSuccesses\": " + homeThirdDownSuccesses + ",\n" +
+                "  \"homeThirdDownPercentage\": " + homeThirdDownPercentage + ",\n" +
+                "  \"awayThirdDownAttempts\": " + awayThirdDownAttempts + ",\n" +
+                "  \"awayThirdDownSuccesses\": " + awayThirdDownSuccesses + ",\n" +
+                "  \"awayThirdDownPercentage\": " + awayThirdDownPercentage + ",\n" +
+                "  \"homeFourthDownAttempts\": " + homeFourthDownAttempts + ",\n" +
+                "  \"homeFourthDownSuccesses\": " + homeFourthDownSuccesses + ",\n" +
+                "  \"homeFourthDownPercentage\": " + homeFourthDownPercentage + ",\n" +
+                "  \"awayFourthDownAttempts\": " + awayFourthDownAttempts + ",\n" +
+                "  \"awayFourthDownSuccesses\": " + awayFourthDownSuccesses + ",\n" +
+                "  \"awayFourthDownPercentage\": " + awayFourthDownPercentage + ",\n" +
+                "  \"homeTwoPointAttempts\": " + homeTwoPointAttempts + ",\n" +
+                "  \"homeTwoPointSuccesses\": " + homeTwoPointSuccesses + ",\n" +
+                "  \"homeTwoPointPercentage\": " + homeTwoPointPercentage + ",\n" +
+                "  \"awayTwoPointAttempts\": " + awayTwoPointAttempts + ",\n" +
+                "  \"awayTwoPointSuccesses\": " + awayTwoPointSuccesses + ",\n" +
+                "  \"awayTwoPointPercentage\": " + awayTwoPointPercentage + ",\n" +
+                "  \"homeOnsideKickAttempts\": " + homeOnsideKickAttempts + ",\n" +
+                "  \"homeOnsideKickSuccesses\": " + homeOnsideKickSuccesses + ",\n" +
+                "  \"homeOnsideKickPercentage\": " + homeOnsideKickPercentage + ",\n" +
+                "  \"awayOnsideKickAttempts\": " + awayOnsideKickAttempts + ",\n" +
+                "  \"awayOnsideKickSuccesses\": " + awayOnsideKickSuccesses + ",\n" +
+                "  \"awayOnsideKickPercentage\": " + awayOnsideKickPercentage + ",\n" +
+                "  \"homeOffensivePlays\": " + homeOffensivePlays + ",\n" +
+                "  \"homeDefensivePlays\": " + homeDefensivePlays + ",\n" +
+                "  \"awayOffensivePlays\": " + awayOffensivePlays + ",\n" +
+                "  \"awayDefensivePlays\": " + awayDefensivePlays + ",\n" +
+                "  \"homeTurnovers\": " + homeTurnovers + ",\n" +
+                "  \"homeFumbles\": " + homeFumbles + ",\n" +
+                "  \"homeInterceptions\": " + homeInterceptions + ",\n" +
+                "  \"awayTurnovers\": " + awayTurnovers + ",\n" +
+                "  \"awayFumbles\": " + awayFumbles + ",\n" +
+                "  \"awayInterceptions\": " + awayInterceptions + ",\n" +
+                "  \"homeDefensiveTouchdowns\": " + homeDefensiveTouchdowns + ",\n" +
+                "  \"homeScoopAndScores\": " + homeScoopAndScores + ",\n" +
+                "  \"homePickSixes\": " + homePickSixes + ",\n" +
+                "  \"homeKickoffDefensiveTouchdowns\": " + homeKickoffDefensiveTouchdowns + ",\n" +
+                "  \"awayDefensiveTouchdowns\": " + awayDefensiveTouchdowns + ",\n" +
+                "  \"awayScoopAndScores\": " + awayScoopAndScores + ",\n" +
+                "  \"awayPickSixes\": " + awayPickSixes + ",\n" +
+                "  \"awayKickoffDefensiveTouchdowns\": " + awayKickoffDefensiveTouchdowns + ",\n" +
+                "  \"threadTimestamp\": \"" + threadTimestamp + "\",\n" +
+                "  \"spread\": " + spread + "\n" +
+                "}";
     }
 }
