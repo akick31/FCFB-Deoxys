@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:8082")
@@ -41,6 +42,7 @@ public class GamesController {
         } else {
             TeamsEntity homeTeam = teamsRepository.findByName(gameRequest.getHomeTeam()).get();
             TeamsEntity awayTeam = teamsRepository.findByName(gameRequest.getAwayTeam()).get();
+            Boolean isConferenceGame = false;
 
             // If the coaches don't match, add them to the team
             if (homeTeam.getCoach() == null || !homeTeam.getCoach().contains(gameRequest.getHomeCoach())) {
@@ -62,6 +64,9 @@ public class GamesController {
             }
             if (awayTeam.getDefensivePlaybook() == null || !awayTeam.getDefensivePlaybook().contains(gameRequest.getAwayDefensivePlaybook())) {
                 awayTeam.setDefensivePlaybook(gameRequest.getAwayDefensivePlaybook());
+            }
+            if (homeTeam.getConference() != null && awayTeam.getConference() != null && homeTeam.getConference().equals(awayTeam.getConference())) {
+                isConferenceGame = true;
             }
             teamsRepository.save(homeTeam);
             teamsRepository.save(awayTeam);
@@ -98,6 +103,7 @@ public class GamesController {
                     gameRequest.getIsOt(),
                     gameRequest.getSeason(),
                     gameRequest.getWeek(),
+                    isConferenceGame,
                     gameRequest.getWaitingOn(),
                     gameRequest.getGameId() + "winprobability.png",
                     gameRequest.getGameId() + "_scoreplot.png",
@@ -130,15 +136,19 @@ public class GamesController {
                     gameRequest.getHomePassingAttempts(),
                     gameRequest.getHomePassingCompletions(),
                     gameRequest.getHomePassingPercentage(),
+                    gameRequest.getHomePassingTouchdowns(),
                     gameRequest.getAwayPassingAttempts(),
                     gameRequest.getAwayPassingCompletions(),
                     gameRequest.getAwayPassingPercentage(),
+                    gameRequest.getAwayPassingTouchdowns(),
                     gameRequest.getHomeRushingAttempts(),
                     gameRequest.getHomeRushingSuccesses(),
                     gameRequest.getHomeRushingPercentage(),
+                    gameRequest.getHomeRushingTouchdowns(),
                     gameRequest.getAwayRushingAttempts(),
                     gameRequest.getAwayRushingSuccesses(),
                     gameRequest.getAwayRushingPercentage(),
+                    gameRequest.getAwayRushingTouchdowns(),
                     gameRequest.getHomeThirdDownAttempts(),
                     gameRequest.getHomeThirdDownSuccesses(),
                     gameRequest.getHomeThirdDownPercentage(),
@@ -181,6 +191,8 @@ public class GamesController {
                     gameRequest.getAwayScoopAndScores(),
                     gameRequest.getAwayPickSixes(),
                     gameRequest.getAwayKickoffDefensiveTouchdowns(),
+                    gameRequest.getHomeSafetiesForced(),
+                    gameRequest.getAwaySafetiesForced(),
                     gameRequest.getThreadTimestamp(),
                     gameRequest.getSpread()
             );
@@ -197,6 +209,21 @@ public class GamesController {
             return new ResponseEntity<>(gameData.get().toString(), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+    }
+
+    /**
+     * Get unfinished games
+     * @return
+     */
+    @GetMapping("/unfinished")
+    public ResponseEntity<List<GamesEntity>> getUnfinishedGames() {
+        List<GamesEntity> gameData = gamesRepository.findUnfinishedGames();
+
+        if (!gameData.isEmpty()) {
+            return new ResponseEntity<>(gameData, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
@@ -257,15 +284,19 @@ public class GamesController {
             _game.setHomePassingAttempts(gameRequest.getHomePassingAttempts());
             _game.setHomePassingCompletions(gameRequest.getHomePassingCompletions());
             _game.setHomePassingPercentage(gameRequest.getHomePassingPercentage());
+            _game.setHomePassingTouchdowns(gameRequest.getHomePassingTouchdowns());
             _game.setAwayPassingAttempts(gameRequest.getAwayPassingAttempts());
             _game.setAwayPassingCompletions(gameRequest.getAwayPassingCompletions());
             _game.setAwayPassingPercentage(gameRequest.getAwayPassingPercentage());
+            _game.setAwayPassingTouchdowns(gameRequest.getAwayPassingTouchdowns());
             _game.setHomeRushingAttempts(gameRequest.getHomeRushingAttempts());
             _game.setHomeRushingSuccesses(gameRequest.getHomeRushingSuccesses());
             _game.setHomeRushingPercentage(gameRequest.getHomeRushingPercentage());
+            _game.setHomeRushingTouchdowns(gameRequest.getHomeRushingTouchdowns());
             _game.setAwayRushingAttempts(gameRequest.getAwayRushingAttempts());
             _game.setAwayRushingSuccesses(gameRequest.getAwayRushingSuccesses());
             _game.setAwayRushingPercentage(gameRequest.getAwayRushingPercentage());
+            _game.setAwayRushingTouchdowns(gameRequest.getAwayRushingTouchdowns());
             _game.setHomeThirdDownAttempts(gameRequest.getHomeThirdDownAttempts());
             _game.setHomeThirdDownSuccesses(gameRequest.getHomeThirdDownSuccesses());
             _game.setHomeThirdDownPercentage(gameRequest.getHomeThirdDownPercentage());

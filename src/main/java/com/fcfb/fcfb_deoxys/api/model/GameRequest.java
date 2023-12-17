@@ -174,6 +174,9 @@ public class GameRequest {
     @JsonProperty("home_passing_percentage")
     private Double homePassingPercentage;
 
+    @JsonProperty("home_passing_touchdowns")
+    private Integer homePassingTouchdowns;
+
     @JsonProperty("away_passing_attempts")
     private Integer awayPassingAttempts;
 
@@ -182,6 +185,9 @@ public class GameRequest {
 
     @JsonProperty("away_passing_percentage")
     private Double awayPassingPercentage;
+
+    @JsonProperty("away_passing_touchdowns")
+    private Integer awayPassingTouchdowns;
 
     @JsonProperty("home_rushing_attempts")
     private Integer homeRushingAttempts;
@@ -192,6 +198,9 @@ public class GameRequest {
     @JsonProperty("home_rushing_percentage")
     private Double homeRushingPercentage;
 
+    @JsonProperty("home_rushing_touchdowns")
+    private Integer homeRushingTouchdowns;
+
     @JsonProperty("away_rushing_attempts")
     private Integer awayRushingAttempts;
 
@@ -200,6 +209,9 @@ public class GameRequest {
 
     @JsonProperty("away_rushing_percentage")
     private Double awayRushingPercentage;
+
+    @JsonProperty("away_rushing_touchdowns")
+    private Integer awayRushingTouchdowns;
 
     @JsonProperty("home_third_down_attempts")
     private Integer homeThirdDownAttempts;
@@ -332,6 +344,12 @@ public class GameRequest {
 
     @JsonProperty("spread")
     private Integer spread;
+
+    @JsonProperty("home_safeties_forced")
+    private Integer homeSafetiesForced;
+
+    @JsonProperty("away_safeties_forced")
+    private Integer awaySafetiesForced;
 
     public Integer getQuarter() {
         return quarter;
@@ -549,6 +567,10 @@ public class GameRequest {
         return homePassingPercentage;
     }
 
+    public Integer getHomePassingTouchdowns() {
+        return homePassingTouchdowns;
+    }
+
     public Integer getAwayPassingAttempts() {
         return awayPassingAttempts;
     }
@@ -559,6 +581,10 @@ public class GameRequest {
 
     public Double getAwayPassingPercentage() {
         return awayPassingPercentage;
+    }
+
+    public Integer getAwayPassingTouchdowns() {
+        return awayPassingTouchdowns;
     }
 
     public Integer getHomeRushingAttempts() {
@@ -573,6 +599,10 @@ public class GameRequest {
         return homeRushingPercentage;
     }
 
+    public Integer getHomeRushingTouchdowns() {
+        return homeRushingTouchdowns;
+    }
+
     public Integer getAwayRushingAttempts() {
         return awayRushingAttempts;
     }
@@ -583,6 +613,10 @@ public class GameRequest {
 
     public Double getAwayRushingPercentage() {
         return awayRushingPercentage;
+    }
+
+    public Integer getAwayRushingTouchdowns() {
+        return awayRushingTouchdowns;
     }
 
     public Integer getHomeThirdDownAttempts() {
@@ -763,5 +797,13 @@ public class GameRequest {
 
     public Integer getSpread() {
         return spread;
+    }
+
+    public Integer getHomeSafetiesForced() {
+        return homeSafetiesForced;
+    }
+
+    public Integer getAwaySafetiesForced() {
+        return awaySafetiesForced;
     }
 }
