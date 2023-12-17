@@ -1,7 +1,9 @@
 package com.fcfb.fcfb_deoxys.api.controller;
 
 import com.fcfb.fcfb_deoxys.api.model.GameRequest;
+import com.fcfb.fcfb_deoxys.api.repositories.TeamStatsRepository;
 import com.fcfb.fcfb_deoxys.domain.GamesEntity;
+import com.fcfb.fcfb_deoxys.domain.TeamStatsEntity;
 import com.fcfb.fcfb_deoxys.domain.TeamsEntity;
 import com.fcfb.fcfb_deoxys.api.repositories.GamesRepository;
 import com.fcfb.fcfb_deoxys.api.repositories.GameDatesRepository;
@@ -26,6 +28,9 @@ public class GamesController {
     TeamsRepository teamsRepository;
 
     @Autowired
+    TeamStatsRepository teamStatsRepository;
+
+    @Autowired
     GameDatesRepository seasonsRepository;
 
     /**
@@ -42,6 +47,9 @@ public class GamesController {
         } else {
             TeamsEntity homeTeam = teamsRepository.findByName(gameRequest.getHomeTeam()).get();
             TeamsEntity awayTeam = teamsRepository.findByName(gameRequest.getAwayTeam()).get();
+
+            TeamStatsEntity homeTeamStats = teamStatsRepository.findByNameAndSeason(gameRequest.getHomeTeam(), gameRequest.getSeason().toString()).get();
+            TeamStatsEntity awayTeamStats = teamStatsRepository.findByNameAndSeason(gameRequest.getAwayTeam(), gameRequest.getSeason().toString()).get();
             Boolean isConferenceGame = false;
 
             // If the coaches don't match, add them to the team
@@ -89,10 +97,10 @@ public class GamesController {
                     gameRequest.getBallLocation(),
                     gameRequest.getDown(),
                     gameRequest.getYardsToGo(),
-                    homeTeam.getCurrentWins(),
-                    homeTeam.getCurrentLosses(),
-                    awayTeam.getCurrentWins(),
-                    awayTeam.getCurrentLosses(),
+                    homeTeamStats.getWins(),
+                    homeTeamStats.getLosses(),
+                    awayTeamStats.getWins(),
+                    awayTeamStats.getLosses(),
                     gameRequest.getGameId() + "_scorebug.png",
                     homeTeam.getSubdivision(),
                     gameRequest.getThread(),
