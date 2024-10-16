@@ -1,12 +1,15 @@
 package com.fcfb.fcfb_deoxys.domain;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
 @Table(name = "teams", schema = "deoxys")
 public class TeamsEntity {
-    @Id
+    @Basic
     @Column(name = "id")
     private Integer id;
     @Basic
@@ -43,23 +46,11 @@ public class TeamsEntity {
     @Column(name = "conference")
     private String conference;
     @Basic
-    @Column(name = "current_wins")
-    private Integer currentWins;
-    @Basic
-    @Column(name = "current_losses")
-    private Integer currentLosses;
-    @Basic
     @Column(name = "overall_wins")
     private Integer overallWins;
     @Basic
     @Column(name = "overall_losses")
     private Integer overallLosses;
-    @Basic
-    @Column(name = "current_conference_wins")
-    private Integer currentConferenceWins;
-    @Basic
-    @Column(name = "current_conference_losses")
-    private Integer currentConferenceLosses;
     @Basic
     @Column(name = "overall_conference_wins")
     private Integer overallConferenceWins;
@@ -163,22 +154,6 @@ public class TeamsEntity {
         this.conference = conference;
     }
 
-    public Integer getCurrentWins() {
-        return currentWins;
-    }
-
-    public void setCurrentWins(Integer currentWins) {
-        this.currentWins = currentWins;
-    }
-
-    public Integer getCurrentLosses() {
-        return currentLosses;
-    }
-
-    public void setCurrentLosses(Integer currentLosses) {
-        this.currentLosses = currentLosses;
-    }
-
     public Integer getOverallWins() {
         return overallWins;
     }
@@ -193,22 +168,6 @@ public class TeamsEntity {
 
     public void setOverallLosses(Integer overallLosses) {
         this.overallLosses = overallLosses;
-    }
-
-    public Integer getCurrentConferenceWins() {
-        return currentConferenceWins;
-    }
-
-    public void setCurrentConferenceWins(Integer currentConferenceWins) {
-        this.currentConferenceWins = currentConferenceWins;
-    }
-
-    public Integer getCurrentConferenceLosses() {
-        return currentConferenceLosses;
-    }
-
-    public void setCurrentConferenceLosses(Integer currentConferenceLosses) {
-        this.currentConferenceLosses = currentConferenceLosses;
     }
 
     public Integer getOverallConferenceWins() {
@@ -232,11 +191,11 @@ public class TeamsEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TeamsEntity that = (TeamsEntity) o;
-        return Objects.equals(id, that.id) && Objects.equals(logo, that.logo) && Objects.equals(coach, that.coach) && Objects.equals(coachesPollRanking, that.coachesPollRanking) && Objects.equals(name, that.name) && Objects.equals(playoffCommitteeRanking, that.playoffCommitteeRanking) && Objects.equals(primaryColor, that.primaryColor) && Objects.equals(secondaryColor, that.secondaryColor) && Objects.equals(subdivision, that.subdivision) && Objects.equals(offensivePlaybook, that.offensivePlaybook) && Objects.equals(defensivePlaybook, that.defensivePlaybook) && Objects.equals(conference, that.conference) && Objects.equals(currentWins, that.currentWins) && Objects.equals(currentLosses, that.currentLosses) && Objects.equals(overallWins, that.overallWins) && Objects.equals(overallLosses, that.overallLosses) && Objects.equals(currentConferenceWins, that.currentConferenceWins) && Objects.equals(currentConferenceLosses, that.currentConferenceLosses) && Objects.equals(overallConferenceWins, that.overallConferenceWins) && Objects.equals(overallConferenceLosses, that.overallConferenceLosses);
+        return Objects.equals(id, that.id) && Objects.equals(logo, that.logo) && Objects.equals(coach, that.coach) && Objects.equals(coachesPollRanking, that.coachesPollRanking) && Objects.equals(name, that.name) && Objects.equals(playoffCommitteeRanking, that.playoffCommitteeRanking) && Objects.equals(primaryColor, that.primaryColor) && Objects.equals(secondaryColor, that.secondaryColor) && Objects.equals(subdivision, that.subdivision) && Objects.equals(offensivePlaybook, that.offensivePlaybook) && Objects.equals(defensivePlaybook, that.defensivePlaybook) && Objects.equals(conference, that.conference) && Objects.equals(overallWins, that.overallWins) && Objects.equals(overallLosses, that.overallLosses) && Objects.equals(overallConferenceWins, that.overallConferenceWins) && Objects.equals(overallConferenceLosses, that.overallConferenceLosses);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, logo, coach, coachesPollRanking, name, playoffCommitteeRanking, primaryColor, secondaryColor, subdivision, offensivePlaybook, defensivePlaybook, conference, currentWins, currentLosses, overallWins, overallLosses, currentConferenceWins, currentConferenceLosses, overallConferenceWins, overallConferenceLosses);
+        return Objects.hash(id, logo, coach, coachesPollRanking, name, playoffCommitteeRanking, primaryColor, secondaryColor, subdivision, offensivePlaybook, defensivePlaybook, conference, overallWins, overallLosses, overallConferenceWins, overallConferenceLosses);
     }
 }
