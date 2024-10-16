@@ -97,7 +97,7 @@ pipeline {
                 script {
                     echo 'Starting the new Deoxys container...'
                     sh """
-                        docker run -d --restart=always --name ${CONTAINER_NAME} \\
+                        docker run -d -p 1213:1213 --restart=always --name ${CONTAINER_NAME} \\
                             --env-file ${APP_PROPERTIES} \\
                             ${IMAGE_NAME}:${DOCKERFILE}
                     """
