@@ -7,7 +7,7 @@ WORKDIR /project
 COPY ./target/*.jar app.jar
 
 # Expost port
-EXPOSE 1212
+EXPOSE 1213
 
 # Run Deoxys
 CMD [ "java", "-jar", "app.jar" ]

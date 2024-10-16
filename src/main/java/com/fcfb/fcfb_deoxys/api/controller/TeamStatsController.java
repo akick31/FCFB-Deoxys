@@ -20,6 +20,26 @@ public class TeamStatsController {
     @Autowired
     TeamStatsRepository teamStatsRepository;
 
+    /**
+     * Get a team's stats by their name
+     *
+     * @param teamName
+     * @return
+     */
+    @GetMapping("/{team_name}/{season}")
+    public ResponseEntity<TeamStatsEntity> getTeamStats(@PathVariable("team_name") String teamName,
+                                                        @PathVariable("season") String season) {
+        Optional<TeamStatsEntity> teamData = teamStatsRepository.findByNameAndSeason(teamName, season);
+
+        if (teamData.isPresent()) {
+            TeamStatsEntity team = teamData.get();
+            return new ResponseEntity<>(team, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+    }
+
+
     @PostMapping("/create/{team_name}/{season}")
     public ResponseEntity<TeamStatsEntity> createTeamStats(@PathVariable("team_name") String teamName,
                                                            @PathVariable("season") String season,
