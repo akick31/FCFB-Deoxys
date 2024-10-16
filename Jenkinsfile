@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:3.8.6-openjdk-17'  // Use Maven Docker image
-            args '-v /root/.m2:/root/.m2'  // Optionally mount a volume for Maven cache
-        }
-    }
+    agent any
 
     environment {
         IMAGE_NAME = 'fcfb-deoxys'
